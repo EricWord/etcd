@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"os"
 
-	"etcd/client"
+	"etcd-with-comments/client"
 )
 
 // printResponseKey only supports to print key correctly.

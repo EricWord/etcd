@@ -15,10 +15,10 @@
 package mvcc
 
 import (
-	"etcd/lease"
-	"etcd/mvcc/backend"
-	"etcd/mvcc/mvccpb"
-	"etcd/pkg/traceutil"
+	"etcd-with-comments/lease"
+	"etcd-with-comments/mvcc/backend"
+	"etcd-with-comments/mvcc/mvccpb"
+	"etcd-with-comments/pkg/traceutil"
 )
 
 type RangeOptions struct {

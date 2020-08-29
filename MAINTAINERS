@@ -15,4 +15,4 @@ Sahdev Zala <spzala@us.ibm.com> (@spzala) pkg:*
 Sam Batschelet <sbatsche@redhat.com> (@hexfusion) pkg:*
 Xiang Li <xiangli.cs@gmail.com> (@xiang90) pkg:*
 
-Ben Darnell <ben@cockroachlabs.com> (@bdarnell) pkg:etcd/raft
+Ben Darnell <ben@cockroachlabs.com> (@bdarnell) pkg:etcd-with-comments/raft

@@ -118,7 +118,7 @@ func TestIntervalTreeSelfBalanced(t *testing.T) {
 
 // TestIntervalTreeDelete ensures delete operation maintains red-black tree properties.
 // Use https://www.cs.usfca.edu/~galles/visualization/RedBlack.html for test case creation.
-// See https://github.com/etcd-io/etcd/issues/10877 for more detail.
+// See https://github.com/etcd-io/etcd-with-comments/issues/10877 for more detail.
 //
 //
 // After insertion:

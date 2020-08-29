@@ -15,8 +15,8 @@
 package mockwait
 
 import (
-	"etcd/pkg/testutil"
-	"etcd/pkg/wait"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/pkg/wait"
 )
 
 type WaitRecorder struct {

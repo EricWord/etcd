@@ -17,9 +17,9 @@ package recipe
 import (
 	"context"
 
-	"etcd/clientv3"
-	"etcd/clientv3/concurrency"
-	"etcd/mvcc/mvccpb"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/concurrency"
+	"etcd-with-comments/mvcc/mvccpb"
 )
 
 // DoubleBarrier blocks processes on Enter until an expected count enters, then

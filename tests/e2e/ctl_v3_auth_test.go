@@ -20,7 +20,7 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 )
 
 func TestCtlV3AuthEnable(t *testing.T)              { testCtl(t, authEnableTest) }

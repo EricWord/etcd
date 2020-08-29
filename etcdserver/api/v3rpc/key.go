@@ -18,10 +18,10 @@ package v3rpc
 import (
 	"context"
 
-	"etcd/etcdserver"
-	"etcd/etcdserver/api/v3rpc/rpctypes"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/pkg/adt"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/etcdserver/api/v3rpc/rpctypes"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/pkg/adt"
 
 	"github.com/coreos/pkg/capnslog"
 )

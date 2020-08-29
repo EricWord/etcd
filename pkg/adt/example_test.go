@@ -17,7 +17,7 @@ package adt_test
 import (
 	"fmt"
 
-	"etcd/pkg/adt"
+	"etcd-with-comments/pkg/adt"
 )
 
 func Example() {

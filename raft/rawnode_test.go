@@ -22,9 +22,9 @@ import (
 	"reflect"
 	"testing"
 
-	"etcd/raft/quorum"
-	pb "etcd/raft/raftpb"
-	"etcd/raft/tracker"
+	"etcd-with-comments/raft/quorum"
+	pb "etcd-with-comments/raft/raftpb"
+	"etcd-with-comments/raft/tracker"
 )
 
 // rawNodeAdapter is essentially a lint that makes sure that RawNode implements

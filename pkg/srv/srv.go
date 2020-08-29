@@ -21,7 +21,7 @@ import (
 	"net/url"
 	"strings"
 
-	"etcd/pkg/types"
+	"etcd-with-comments/pkg/types"
 )
 
 var (

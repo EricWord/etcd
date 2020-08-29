@@ -18,11 +18,11 @@ import (
 	"context"
 	"sync"
 
-	"etcd/auth"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/lease"
-	"etcd/mvcc"
-	"etcd/pkg/traceutil"
+	"etcd-with-comments/auth"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/lease"
+	"etcd-with-comments/mvcc"
+	"etcd-with-comments/pkg/traceutil"
 )
 
 type authApplierV3 struct {

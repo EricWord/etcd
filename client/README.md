@@ -1,15 +1,15 @@
-# etcd/client
+# etcd-with-comments/client
 
-etcd/client is the Go client library for etcd.
+etcd-with-comments/client is the Go client library for etcd.
 
-[![GoDoc](https://godoc.org/etcd/client?status.png)](https://godoc.org/etcd/client)
+[![GoDoc](https://godoc.org/etcd-with-comments/client?status.png)](https://godoc.org/etcd-with-comments/client)
 
 For full compatibility, it is recommended to vendor builds using etcd's vendored packages, using tools like `golang/dep`, as in [vendor directories](https://golang.org/cmd/go/#hdr-Vendor_Directories).
 
 ## Install
 
 ```bash
-go get etcd/client
+go get etcd-with-comments/client
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ import (
 	"time"
 	"context"
 
-	"etcd/client"
+	"etcd-with-comments/client"
 )
 
 func main() {
@@ -103,10 +103,10 @@ if err != nil {
 
 ## Caveat
 
-1. etcd/client prefers to use the same endpoint as long as the endpoint continues to work well. This saves socket resources, and improves efficiency for both client and server side. This preference doesn't remove consistency from the data consumed by the client because data replicated to each etcd member has already passed through the consensus process.
+1. etcd-with-comments/client prefers to use the same endpoint as long as the endpoint continues to work well. This saves socket resources, and improves efficiency for both client and server side. This preference doesn't remove consistency from the data consumed by the client because data replicated to each etcd member has already passed through the consensus process.
 
-2. etcd/client does round-robin rotation on other available endpoints if the preferred endpoint isn't functioning properly. For example, if the member that etcd/client connects to is hard killed, etcd/client will fail on the first attempt with the killed member, and succeed on the second attempt with another member. If it fails to talk to all available endpoints, it will return all errors happened.
+2. etcd-with-comments/client does round-robin rotation on other available endpoints if the preferred endpoint isn't functioning properly. For example, if the member that etcd-with-comments/client connects to is hard killed, etcd-with-comments/client will fail on the first attempt with the killed member, and succeed on the second attempt with another member. If it fails to talk to all available endpoints, it will return all errors happened.
 
-3. Default etcd/client cannot handle the case that the remote server is SIGSTOPed now. TCP keepalive mechanism doesn't help in this scenario because operating system may still send TCP keep-alive packets. Over time we'd like to improve this functionality, but solving this issue isn't high priority because a real-life case in which a server is stopped, but the connection is kept alive, hasn't been brought to our attention.
+3. Default etcd-with-comments/client cannot handle the case that the remote server is SIGSTOPed now. TCP keepalive mechanism doesn't help in this scenario because operating system may still send TCP keep-alive packets. Over time we'd like to improve this functionality, but solving this issue isn't high priority because a real-life case in which a server is stopped, but the connection is kept alive, hasn't been brought to our attention.
 
-4. etcd/client cannot detect whether a member is healthy with watches and non-quorum read requests. If the member is isolated from the cluster, etcd/client may retrieve outdated data. Instead, users can either issue quorum read requests or monitor the /health endpoint for member health information.
+4. etcd-with-comments/client cannot detect whether a member is healthy with watches and non-quorum read requests. If the member is isolated from the cluster, etcd-with-comments/client may retrieve outdated data. Instead, users can either issue quorum read requests or monitor the /health endpoint for member health information.

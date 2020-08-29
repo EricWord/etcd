@@ -17,7 +17,7 @@ package membership
 import (
 	"errors"
 
-	"etcd/etcdserver/api/v2error"
+	"etcd-with-comments/etcdserver/api/v2error"
 )
 
 var (

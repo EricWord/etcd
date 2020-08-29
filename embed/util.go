@@ -17,7 +17,7 @@ package embed
 import (
 	"path/filepath"
 
-	"etcd/wal"
+	"etcd-with-comments/wal"
 )
 
 func isMemberInitialized(cfg *Config) bool {

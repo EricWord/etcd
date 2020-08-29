@@ -28,8 +28,8 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/embed"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/embed"
 )
 
 func TestEmbedEtcd(t *testing.T) {

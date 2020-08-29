@@ -17,7 +17,7 @@ package command
 import (
 	"fmt"
 
-	"etcd/version"
+	"etcd-with-comments/version"
 
 	"github.com/spf13/cobra"
 )

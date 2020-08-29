@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"etcd/pkg/testutil"
+	"etcd-with-comments/pkg/testutil"
 )
 
 func TestV2CurlNoTLS(t *testing.T)      { testCurlPutGet(t, &configNoTLS) }

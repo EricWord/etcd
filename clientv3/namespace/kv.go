@@ -17,9 +17,9 @@ package namespace
 import (
 	"context"
 
-	"etcd/clientv3"
-	"etcd/etcdserver/api/v3rpc/rpctypes"
-	pb "etcd/etcdserver/etcdserverpb"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/etcdserver/api/v3rpc/rpctypes"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
 )
 
 type kvPrefix struct {

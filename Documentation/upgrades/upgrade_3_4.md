@@ -12,7 +12,7 @@ Before [starting an upgrade](#upgrade-procedure), read through the rest of this 
 
 ### Upgrade checklists
 
-**NOTE:** When [migrating from v2 with no v3 data](https://github.com/etcd-io/etcd/issues/9480), etcd server v3.2+ panics when etcd restores from existing snapshots but no v3 `ETCD_DATA_DIR/member/snap/db` file. This happens when the server had migrated from v2 with no previous v3 data. This also prevents accidental v3 data loss (e.g. `db` file might have been moved). etcd requires that post v3 migration can only happen with v3 data. Do not upgrade to newer v3 versions until v3.0 server contains v3 data.
+**NOTE:** When [migrating from v2 with no v3 data](https://github.com/etcd-io/etcd-with-comments/issues/9480), etcd server v3.2+ panics when etcd restores from existing snapshots but no v3 `ETCD_DATA_DIR/member/snap/db` file. This happens when the server had migrated from v2 with no previous v3 data. This also prevents accidental v3 data loss (e.g. `db` file might have been moved). etcd requires that post v3 migration can only happen with v3 data. Do not upgrade to newer v3 versions until v3.0 server contains v3 data.
 
 Highlighted breaking changes in 3.4.
 
@@ -37,7 +37,7 @@ OK
 
 #### Make `etcd --enable-v2=false` default
 
-[`etcd --enable-v2=false`](https://github.com/etcd-io/etcd/pull/10935) is now the default.
+[`etcd --enable-v2=false`](https://github.com/etcd-io/etcd-with-comments/pull/10935) is now the default.
 
 This means, unless `etcd --enable-v2=true` is specified, etcd v3.4 server would not serve v2 API requests.
 
@@ -70,7 +70,7 @@ Other HTTP APIs will still work (e.g. `[CLIENT-URL]/metrics`, `[CLIENT-URL]/heal
 
 ```diff
 import (
-+	"etcd/clientv3"
++	"etcd-with-comments/clientv3"
 
 	"google.golang.org/grpc"
 +	"google.golang.org/grpc/codes"
@@ -89,12 +89,12 @@ _, err := kvc.Get(ctx, "a")
 
 #### Require `grpc.WithBlock` for client dial
 
-[The new client balancer](https://github.com/etcd-io/etcd/blob/master/Documentation/learning/design-client.md) uses an asynchronous resolver to pass endpoints to the gRPC dial function. As a result, v3.4 client requires `grpc.WithBlock` dial option to wait until the underlying connection is up.
+[The new client balancer](https://github.com/etcd-io/etcd-with-comments/blob/master/Documentation/learning/design-client.md) uses an asynchronous resolver to pass endpoints to the gRPC dial function. As a result, v3.4 client requires `grpc.WithBlock` dial option to wait until the underlying connection is up.
 
 ```diff
 import (
 	"time"
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 +	"google.golang.org/grpc"
 )
 
@@ -175,7 +175,7 @@ Note that `etcd_debugging_*` namespace metrics have been marked as experimental.
 
 #### Deprecating `etcd --log-output` flag (now `--log-outputs`)
 
-Rename [`etcd --log-output` to `--log-outputs`](https://github.com/etcd-io/etcd/pull/9624) to support multiple log outputs. **`etcd --logger=capnslog` does not support multiple log outputs.**
+Rename [`etcd --log-output` to `--log-outputs`](https://github.com/etcd-io/etcd-with-comments/pull/9624) to support multiple log outputs. **`etcd --logger=capnslog` does not support multiple log outputs.**
 
 **`etcd --log-output`** will be deprecated in v3.5. **`etcd --logger=capnslog` will be deprecated in v3.5**.
 
@@ -202,10 +202,10 @@ Now that `log-outputs` (old field name `log-output`) accepts multiple writers, e
 
 #### Renamed `embed.Config.LogOutput` to `embed.Config.LogOutputs`
 
-Renamed [**`embed.Config.LogOutput`** to **`embed.Config.LogOutputs`**](https://github.com/etcd-io/etcd/pull/9624) to support multiple log outputs. And changed [`embed.Config.LogOutput` type from `string` to `[]string`](https://github.com/etcd-io/etcd/pull/9579) to support multiple log outputs.
+Renamed [**`embed.Config.LogOutput`** to **`embed.Config.LogOutputs`**](https://github.com/etcd-io/etcd-with-comments/pull/9624) to support multiple log outputs. And changed [`embed.Config.LogOutput` type from `string` to `[]string`](https://github.com/etcd-io/etcd-with-comments/pull/9579) to support multiple log outputs.
 
 ```diff
-import "github.com/coreos/etcd/embed"
+import "github.com/coreos/etcd-with-comments/embed"
 
 cfg := &embed.Config{Debug: false}
 -cfg.LogOutput = "stderr"
@@ -223,7 +223,7 @@ cfg := &embed.Config{Debug: false}
 
 #### Deprecating `etcd --debug` flag (now `--log-level=debug`)
 
-v3.4 deprecates [`etcd --debug`](https://github.com/etcd-io/etcd/pull/10947) flag. Instead, use `etcd --log-level=debug` flag.
+v3.4 deprecates [`etcd --debug`](https://github.com/etcd-io/etcd-with-comments/pull/10947) flag. Instead, use `etcd --log-level=debug` flag.
 
 ```diff
 -etcd --debug
@@ -235,7 +235,7 @@ v3.4 deprecates [`etcd --debug`](https://github.com/etcd-io/etcd/pull/10947) fla
 Deprecated `pkg/transport.TLSInfo.CAFile` field.
 
 ```diff
-import "github.com/coreos/etcd/pkg/transport"
+import "github.com/coreos/etcd-with-comments/pkg/transport"
 
 tlsInfo := transport.TLSInfo{
     CertFile: "/tmp/test-certs/test.pem",
@@ -254,7 +254,7 @@ if err != nil {
 To be consistent with the flag name `etcd --snapshot-count`, `embed.Config.SnapCount` field has been renamed to `embed.Config.SnapshotCount`:
 
 ```diff
-import "github.com/coreos/etcd/embed"
+import "github.com/coreos/etcd-with-comments/embed"
 
 cfg := embed.NewConfig()
 -cfg.SnapCount = 100000
@@ -266,7 +266,7 @@ cfg := embed.NewConfig()
 To be consistent with the flag name `etcd --snapshot-count`, `etcdserver.ServerConfig.SnapCount` field has been renamed to `etcdserver.ServerConfig.SnapshotCount`:
 
 ```diff
-import "github.com/coreos/etcd/etcdserver"
+import "github.com/coreos/etcd-with-comments/etcdserver"
 
 srvcfg := etcdserver.ServerConfig{
 -  SnapCount: 100000,
@@ -278,7 +278,7 @@ srvcfg := etcdserver.ServerConfig{
 Changed `wal` function signatures to support structured logger.
 
 ```diff
-import "github.com/coreos/etcd/wal"
+import "github.com/coreos/etcd-with-comments/wal"
 +import "go.uber.org/zap"
 
 +lg, _ = zap.NewProduction()
@@ -304,7 +304,7 @@ import "github.com/coreos/etcd/wal"
 import (
     "fmt"
 
-    "etcd/pkg/adt"
+    "etcd-with-comments/pkg/adt"
 )
 
 func main() {
@@ -317,7 +317,7 @@ func main() {
 `embed.Config.SetupLogging` has been removed in order to prevent wrong logging configuration, and now set up automatically.
 
 ```diff
-import "github.com/coreos/etcd/embed"
+import "github.com/coreos/etcd-with-comments/embed"
 
 cfg := &embed.Config{Debug: false}
 -cfg.SetupLogging()
@@ -512,7 +512,7 @@ Restart the etcd server with same configuration but with the new etcd binary.
 ```diff
 -etcd-old --name s1 \
 +etcd-new --name s1 \
-  --data-dir /tmp/etcd/s1 \
+  --data-dir /tmp/etcd-with-comments/s1 \
   --listen-client-urls http://localhost:2379 \
   --advertise-client-urls http://localhost:2379 \
   --listen-peer-urls http://localhost:2380 \

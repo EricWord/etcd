@@ -20,7 +20,7 @@ import (
 	"time"
 
 	"github.com/urfave/cli"
-	"etcd/client"
+	"etcd-with-comments/client"
 )
 
 // NewUpdateCommand returns the CLI command for "update".

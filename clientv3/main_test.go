@@ -22,8 +22,8 @@ import (
 	"testing"
 	"time"
 
-	"etcd/integration"
-	"etcd/pkg/testutil"
+	"etcd-with-comments/integration"
+	"etcd-with-comments/pkg/testutil"
 )
 
 // TestMain sets up an etcd cluster if running the examples.

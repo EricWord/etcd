@@ -19,8 +19,8 @@
 //	import (
 //		"context"
 //
-//		"etcd/embed"
-//		"etcd/etcdserver/api/v3client"
+//		"etcd-with-comments/embed"
+//		"etcd-with-comments/etcdserver/api/v3client"
 //	)
 //
 //	...

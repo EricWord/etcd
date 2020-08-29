@@ -26,8 +26,8 @@ import (
 	"testing"
 	"time"
 
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/mvcc/backend"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/mvcc/backend"
 	"go.uber.org/zap"
 )
 

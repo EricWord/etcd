@@ -17,7 +17,7 @@ package raft
 import (
 	"testing"
 
-	pb "etcd/raft/raftpb"
+	pb "etcd-with-comments/raft/raftpb"
 )
 
 var (

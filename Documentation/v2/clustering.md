@@ -409,7 +409,7 @@ $ etcd --proxy on --discovery-srv example.com
 
 DNS SRV records can also be used to help clients discover the etcd cluster.
 
-The official [etcd/client][client] supports [DNS Discovery][client-discoverer].
+The official [etcd-with-comments/client][client] supports [DNS Discovery][client-discoverer].
 
 `etcdctl` also supports DNS Discovery by specifying the `--discovery-srv` option.
 
@@ -437,7 +437,7 @@ To make understanding this feature easier, we changed the naming of some flags, 
 |-peers-file    |none      |Deprecated. The --initial-cluster flag provides a similar concept with different semantics. Please read this guide on cluster startup.|
 
 [client]: ../../client
-[client-discoverer]: https://godoc.org/github.com/coreos/etcd/client#Discoverer
+[client-discoverer]: https://godoc.org/github.com/coreos/etcd-with-comments/client#Discoverer
 [conf-adv-client]: configuration.md#-advertise-client-urls
 [conf-listen-client]: configuration.md#-listen-client-urls
 [discovery-proto]: discovery_protocol.md

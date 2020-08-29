@@ -18,10 +18,10 @@ import (
 	"context"
 	"io"
 
-	"etcd/etcdserver"
-	"etcd/etcdserver/api/v3rpc/rpctypes"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/lease"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/etcdserver/api/v3rpc/rpctypes"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/lease"
 
 	"go.uber.org/zap"
 )

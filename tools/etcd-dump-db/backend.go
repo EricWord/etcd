@@ -17,13 +17,13 @@ package main
 import (
 	"encoding/binary"
 	"fmt"
-	"etcd/auth/authpb"
+	"etcd-with-comments/auth/authpb"
 	"path/filepath"
 
-	"etcd/lease/leasepb"
-	"etcd/mvcc"
-	"etcd/mvcc/backend"
-	"etcd/mvcc/mvccpb"
+	"etcd-with-comments/lease/leasepb"
+	"etcd-with-comments/mvcc"
+	"etcd-with-comments/mvcc/backend"
+	"etcd-with-comments/mvcc/mvccpb"
 
 	bolt "go.etcd.io/bbolt"
 )
@@ -142,7 +142,7 @@ func iterateBucket(dbPath, bucket string, limit uint64, decode bool) (err error)
 		// iterate in reverse order (use First() and Next() for ascending order)
 		for k, v := c.Last(); k != nil; k, v = c.Prev() {
 			// TODO: remove sensitive information
-			// (https://github.com/etcd-io/etcd/issues/7620)
+			// (https://github.com/etcd-io/etcd-with-comments/issues/7620)
 			if dec, ok := decoders[bucket]; decode && ok {
 				dec(k, v)
 			} else {

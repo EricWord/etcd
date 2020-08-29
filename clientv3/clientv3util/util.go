@@ -16,7 +16,7 @@
 package clientv3util
 
 import (
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 )
 
 // KeyExists returns a comparison operation that evaluates to true iff the given

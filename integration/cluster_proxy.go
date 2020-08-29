@@ -19,10 +19,10 @@ package integration
 import (
 	"sync"
 
-	"etcd/clientv3"
-	"etcd/clientv3/namespace"
-	"etcd/proxy/grpcproxy"
-	"etcd/proxy/grpcproxy/adapter"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/namespace"
+	"etcd-with-comments/proxy/grpcproxy"
+	"etcd-with-comments/proxy/grpcproxy/adapter"
 )
 
 var (

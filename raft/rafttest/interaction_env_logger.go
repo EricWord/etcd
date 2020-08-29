@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"strings"
 
-	"etcd/raft"
+	"etcd-with-comments/raft"
 )
 
 type logLevels [6]string

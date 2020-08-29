@@ -15,8 +15,8 @@
 package v3rpc
 
 import (
-	"etcd/etcdserver"
-	pb "etcd/etcdserver/etcdserverpb"
+	"etcd-with-comments/etcdserver"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
 )
 
 type header struct {

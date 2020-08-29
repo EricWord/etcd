@@ -21,10 +21,10 @@ import (
 	"io"
 	"sync"
 
-	"etcd/pkg/crc"
-	"etcd/pkg/pbutil"
-	"etcd/raft/raftpb"
-	"etcd/wal/walpb"
+	"etcd-with-comments/pkg/crc"
+	"etcd-with-comments/pkg/pbutil"
+	"etcd-with-comments/raft/raftpb"
+	"etcd-with-comments/wal/walpb"
 )
 
 const minSectorSize = 512

@@ -18,7 +18,7 @@ package mirror
 import (
 	"context"
 
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 )
 
 const (

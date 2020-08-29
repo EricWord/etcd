@@ -26,11 +26,11 @@ import (
 	"runtime"
 	"strings"
 
-	"etcd/embed"
-	"etcd/pkg/flags"
-	"etcd/pkg/logutil"
-	"etcd/pkg/types"
-	"etcd/version"
+	"etcd-with-comments/embed"
+	"etcd-with-comments/pkg/flags"
+	"etcd-with-comments/pkg/logutil"
+	"etcd-with-comments/pkg/types"
+	"etcd-with-comments/version"
 
 	"go.uber.org/zap"
 	"sigs.k8s.io/yaml"

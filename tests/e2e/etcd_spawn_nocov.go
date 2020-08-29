@@ -19,7 +19,7 @@ package e2e
 import (
 	"os"
 
-	"etcd/pkg/expect"
+	"etcd-with-comments/pkg/expect"
 )
 
 const noOutputLineCount = 0 // regular binaries emit no extra lines

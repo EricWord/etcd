@@ -19,7 +19,7 @@ import (
 	"strings"
 	"testing"
 
-	"etcd/pkg/expect"
+	"etcd-with-comments/pkg/expect"
 )
 
 var (

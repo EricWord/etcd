@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"etcd/pkg/flags"
-	"etcd/pkg/testutil"
-	"etcd/version"
+	"etcd-with-comments/pkg/flags"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/version"
 )
 
 func TestCtlV3Version(t *testing.T) { testCtl(t, versionTest) }

@@ -24,10 +24,10 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"etcd/pkg/fileutil"
+	"etcd-with-comments/pkg/fileutil"
 )
 
-const downloadURL = `https://storage.googleapis.com/etcd/%s/etcd-%s-darwin-amd64.zip`
+const downloadURL = `https://storage.googleapis.com/etcd-with-comments/%s/etcd-%s-darwin-amd64.zip`
 
 func install(ver, dir string) (string, error) {
 	ep := fmt.Sprintf(downloadURL, ver, ver)

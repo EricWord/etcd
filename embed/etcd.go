@@ -29,18 +29,18 @@ import (
 	"sync"
 	"time"
 
-	"etcd/etcdserver"
-	"etcd/etcdserver/api/etcdhttp"
-	"etcd/etcdserver/api/rafthttp"
-	"etcd/etcdserver/api/v2http"
-	"etcd/etcdserver/api/v2v3"
-	"etcd/etcdserver/api/v3client"
-	"etcd/etcdserver/api/v3rpc"
-	"etcd/pkg/debugutil"
-	runtimeutil "etcd/pkg/runtime"
-	"etcd/pkg/transport"
-	"etcd/pkg/types"
-	"etcd/version"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/etcdserver/api/etcdhttp"
+	"etcd-with-comments/etcdserver/api/rafthttp"
+	"etcd-with-comments/etcdserver/api/v2http"
+	"etcd-with-comments/etcdserver/api/v2v3"
+	"etcd-with-comments/etcdserver/api/v3client"
+	"etcd-with-comments/etcdserver/api/v3rpc"
+	"etcd-with-comments/pkg/debugutil"
+	runtimeutil "etcd-with-comments/pkg/runtime"
+	"etcd-with-comments/pkg/transport"
+	"etcd-with-comments/pkg/types"
+	"etcd-with-comments/version"
 
 	"github.com/coreos/pkg/capnslog"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
@@ -423,7 +423,7 @@ func stopServers(ctx context.Context, ss *servers) {
 
 	// do not grpc.Server.GracefulStop with TLS enabled etcd server
 	// See https://github.com/grpc/grpc-go/issues/1384#issuecomment-317124531
-	// and https://github.com/etcd-io/etcd/issues/8916
+	// and https://github.com/etcd-io/etcd-with-comments/issues/8916
 	if ss.secure {
 		shutdownNow()
 		return

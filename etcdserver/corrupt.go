@@ -24,11 +24,11 @@ import (
 	"strings"
 	"time"
 
-	"etcd/etcdserver/api/v3rpc/rpctypes"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/mvcc"
-	"etcd/pkg/traceutil"
-	"etcd/pkg/types"
+	"etcd-with-comments/etcdserver/api/v3rpc/rpctypes"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/mvcc"
+	"etcd-with-comments/pkg/traceutil"
+	"etcd-with-comments/pkg/types"
 
 	"go.uber.org/zap"
 )

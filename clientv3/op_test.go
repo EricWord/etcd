@@ -18,7 +18,7 @@ import (
 	"reflect"
 	"testing"
 
-	pb "etcd/etcdserver/etcdserverpb"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
 )
 
 // TestOpWithSort tests if WithSort(ASCEND, KEY) and WithLimit are specified,

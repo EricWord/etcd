@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"sync"
 
-	v3 "etcd/clientv3"
-	pb "etcd/etcdserver/etcdserverpb"
+	v3 "etcd-with-comments/clientv3"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
 )
 
 // Mutex implements the sync Locker interface with etcd

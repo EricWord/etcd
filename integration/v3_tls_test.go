@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/pkg/testutil"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/pkg/testutil"
 
 	"google.golang.org/grpc"
 )

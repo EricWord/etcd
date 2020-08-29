@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3/snapshot"
-	"etcd/pkg/expect"
-	"etcd/pkg/testutil"
+	"etcd-with-comments/clientv3/snapshot"
+	"etcd-with-comments/pkg/expect"
+	"etcd-with-comments/pkg/testutil"
 )
 
 func TestCtlV3Snapshot(t *testing.T) { testCtl(t, snapshotTest) }

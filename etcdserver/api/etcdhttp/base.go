@@ -21,12 +21,12 @@ import (
 	"net/http"
 	"strings"
 
-	"etcd/etcdserver"
-	"etcd/etcdserver/api"
-	"etcd/etcdserver/api/v2error"
-	"etcd/etcdserver/api/v2http/httptypes"
-	"etcd/pkg/logutil"
-	"etcd/version"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/etcdserver/api"
+	"etcd-with-comments/etcdserver/api/v2error"
+	"etcd-with-comments/etcdserver/api/v2http/httptypes"
+	"etcd-with-comments/pkg/logutil"
+	"etcd-with-comments/version"
 
 	"github.com/coreos/pkg/capnslog"
 	"go.uber.org/zap"

@@ -44,19 +44,19 @@ Computes the hash of db file.
 
 ```
 $ etcd-dump-db hash agent01/agent.etcd
-db path: agent01/agent.etcd/member/snap/db
+db path: agent01/agent.etcd-with-comments/member/snap/db
 Hash: 3700260467
 
 
 $ etcd-dump-db hash agent02/agent.etcd
 
-db path: agent02/agent.etcd/member/snap/db
+db path: agent02/agent.etcd-with-comments/member/snap/db
 Hash: 3700260467
 
 
 $ etcd-dump-db hash agent03/agent.etcd
 
-db path: agent03/agent.etcd/member/snap/db
+db path: agent03/agent.etcd-with-comments/member/snap/db
 Hash: 3700260467
 ```
 

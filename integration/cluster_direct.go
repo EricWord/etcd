@@ -17,10 +17,10 @@
 package integration
 
 import (
-	"etcd/clientv3"
-	"etcd/etcdserver/api/v3election/v3electionpb"
-	"etcd/etcdserver/api/v3lock/v3lockpb"
-	pb "etcd/etcdserver/etcdserverpb"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/etcdserver/api/v3election/v3electionpb"
+	"etcd-with-comments/etcdserver/api/v3lock/v3lockpb"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
 )
 
 func toGRPC(c *clientv3.Client) grpcAPI {

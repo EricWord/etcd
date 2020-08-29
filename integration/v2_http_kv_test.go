@@ -26,8 +26,8 @@ import (
 	"testing"
 	"time"
 
-	"etcd/pkg/testutil"
-	"etcd/pkg/transport"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/pkg/transport"
 )
 
 func TestV2Set(t *testing.T) {

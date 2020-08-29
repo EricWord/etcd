@@ -18,8 +18,8 @@ import (
 	"context"
 	"fmt"
 
-	v3 "etcd/clientv3"
-	"etcd/mvcc/mvccpb"
+	v3 "etcd-with-comments/clientv3"
+	"etcd-with-comments/mvcc/mvccpb"
 )
 
 // PriorityQueue implements a multi-reader, multi-writer distributed queue.

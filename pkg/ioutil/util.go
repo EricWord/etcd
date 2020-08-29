@@ -18,7 +18,7 @@ import (
 	"io"
 	"os"
 
-	"etcd/pkg/fileutil"
+	"etcd-with-comments/pkg/fileutil"
 )
 
 // WriteAndSyncFile behaves just like ioutil.WriteFile in the standard library,

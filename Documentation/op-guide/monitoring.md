@@ -14,7 +14,7 @@ The `/debug/pprof` endpoint is the standard go runtime profiling endpoint. This 
 $ go tool pprof http://localhost:2379/debug/pprof/profile
 Fetching profile from http://localhost:2379/debug/pprof/profile
 Please wait... (30s)
-Saved profile in /home/etcd/pprof/pprof.etcd.localhost:2379.samples.cpu.001.pb.gz
+Saved profile in /home/etcd-with-comments/pprof/pprof.etcd.localhost:2379.samples.cpu.001.pb.gz
 Entering interactive mode (type "help" for commands)
 (pprof) top10
 310ms of 480ms total (64.58%)
@@ -22,14 +22,14 @@ Showing top 10 nodes out of 157 (cum >= 10ms)
     flat  flat%   sum%        cum   cum%
    130ms 27.08% 27.08%      130ms 27.08%  runtime.futex
     70ms 14.58% 41.67%       70ms 14.58%  syscall.Syscall
-    20ms  4.17% 45.83%       20ms  4.17%  github.com/coreos/etcd/vendor/golang.org/x/net/http2/hpack.huffmanDecode
+    20ms  4.17% 45.83%       20ms  4.17%  github.com/coreos/etcd-with-comments/vendor/golang.org/x/net/http2/hpack.huffmanDecode
     20ms  4.17% 50.00%       30ms  6.25%  runtime.pcvalue
     20ms  4.17% 54.17%       50ms 10.42%  runtime.schedule
-    10ms  2.08% 56.25%       10ms  2.08%  github.com/coreos/etcd/vendor/github.com/coreos/etcd/etcdserver.(*EtcdServer).AuthInfoFromCtx
-    10ms  2.08% 58.33%       10ms  2.08%  github.com/coreos/etcd/vendor/github.com/coreos/etcd/etcdserver.(*EtcdServer).Lead
-    10ms  2.08% 60.42%       10ms  2.08%  github.com/coreos/etcd/vendor/github.com/coreos/etcd/pkg/wait.(*timeList).Trigger
-    10ms  2.08% 62.50%       10ms  2.08%  github.com/coreos/etcd/vendor/github.com/prometheus/client_golang/prometheus.(*MetricVec).hashLabelValues
-    10ms  2.08% 64.58%       10ms  2.08%  github.com/coreos/etcd/vendor/golang.org/x/net/http2.(*Framer).WriteHeaders
+    10ms  2.08% 56.25%       10ms  2.08%  github.com/coreos/etcd-with-comments/vendor/github.com/coreos/etcd-with-comments/etcdserver.(*EtcdServer).AuthInfoFromCtx
+    10ms  2.08% 58.33%       10ms  2.08%  github.com/coreos/etcd-with-comments/vendor/github.com/coreos/etcd-with-comments/etcdserver.(*EtcdServer).Lead
+    10ms  2.08% 60.42%       10ms  2.08%  github.com/coreos/etcd-with-comments/vendor/github.com/coreos/etcd-with-comments/pkg/wait.(*timeList).Trigger
+    10ms  2.08% 62.50%       10ms  2.08%  github.com/coreos/etcd-with-comments/vendor/github.com/prometheus/client_golang/prometheus.(*MetricVec).hashLabelValues
+    10ms  2.08% 64.58%       10ms  2.08%  github.com/coreos/etcd-with-comments/vendor/golang.org/x/net/http2.(*Framer).WriteHeaders
 ```
 
 The `/debug/requests` endpoint gives gRPC traces and performance statistics through a web browser. For example, here is a `Range` request for the key `abc`:

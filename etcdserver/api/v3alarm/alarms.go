@@ -18,9 +18,9 @@ package v3alarm
 import (
 	"sync"
 
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/mvcc/backend"
-	"etcd/pkg/types"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/mvcc/backend"
+	"etcd-with-comments/pkg/types"
 
 	"github.com/coreos/pkg/capnslog"
 )

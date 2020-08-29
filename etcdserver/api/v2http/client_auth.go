@@ -20,9 +20,9 @@ import (
 	"path"
 	"strings"
 
-	"etcd/etcdserver/api"
-	"etcd/etcdserver/api/v2auth"
-	"etcd/etcdserver/api/v2http/httptypes"
+	"etcd-with-comments/etcdserver/api"
+	"etcd-with-comments/etcdserver/api/v2auth"
+	"etcd-with-comments/etcdserver/api/v2http/httptypes"
 
 	"go.uber.org/zap"
 )

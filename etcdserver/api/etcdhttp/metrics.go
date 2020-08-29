@@ -20,9 +20,9 @@ import (
 	"net/http"
 	"time"
 
-	"etcd/etcdserver"
-	"etcd/etcdserver/etcdserverpb"
-	"etcd/raft"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/raft"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"

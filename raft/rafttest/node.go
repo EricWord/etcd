@@ -21,8 +21,8 @@ import (
 	"sync"
 	"time"
 
-	"etcd/raft"
-	"etcd/raft/raftpb"
+	"etcd-with-comments/raft"
+	"etcd-with-comments/raft/raftpb"
 )
 
 type node struct {

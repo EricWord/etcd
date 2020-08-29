@@ -20,7 +20,7 @@ import (
 	"time"
 
 	"github.com/urfave/cli"
-	"etcd/client"
+	"etcd-with-comments/client"
 )
 
 // NewSetCommand returns the CLI command for "set".

@@ -29,9 +29,9 @@ import (
 	"sync"
 	"time"
 
-	"etcd/functional/rpcpb"
-	"etcd/pkg/debugutil"
-	"etcd/pkg/fileutil"
+	"etcd-with-comments/functional/rpcpb"
+	"etcd-with-comments/pkg/debugutil"
+	"etcd-with-comments/pkg/fileutil"
 
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/zap"
@@ -568,9 +568,9 @@ func (clus *Cluster) sendOpWithResp(idx int, op rpcpb.Operation) (*rpcpb.Respons
 func (clus *Cluster) Send_SIGQUIT_ETCD_AND_REMOVE_DATA_AND_STOP_AGENT() {
 	err := clus.broadcast(rpcpb.Operation_SIGQUIT_ETCD_AND_REMOVE_DATA_AND_STOP_AGENT)
 	if err != nil {
-		clus.lg.Warn("destroying etcd/agents FAIL", zap.Error(err))
+		clus.lg.Warn("destroying etcd-with-comments/agents FAIL", zap.Error(err))
 	} else {
-		clus.lg.Info("destroying etcd/agents PASS")
+		clus.lg.Info("destroying etcd-with-comments/agents PASS")
 	}
 
 	for i, conn := range clus.agentConns {
@@ -593,7 +593,7 @@ func (clus *Cluster) WaitHealth() error {
 	// wait 60s to check cluster health.
 	// TODO: set it to a reasonable value. It is set that high because
 	// follower may use long time to catch up the leader when reboot under
-	// reasonable workload (https://github.com/etcd-io/etcd/issues/2698)
+	// reasonable workload (https://github.com/etcd-io/etcd-with-comments/issues/2698)
 	for i := 0; i < 60; i++ {
 		for _, m := range clus.Members {
 			if err = m.WriteHealthKey(); err != nil {

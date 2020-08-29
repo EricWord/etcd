@@ -19,9 +19,9 @@ import (
 	"reflect"
 	"testing"
 
-	stats "etcd/etcdserver/api/v2stats"
-	"etcd/pkg/types"
-	"etcd/raft/raftpb"
+	stats "etcd-with-comments/etcdserver/api/v2stats"
+	"etcd-with-comments/pkg/types"
+	"etcd-with-comments/raft/raftpb"
 )
 
 func TestMsgAppV2(t *testing.T) {

@@ -18,7 +18,7 @@ import (
 	"context"
 	"sync"
 
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 )
 
 // kvOrdering ensures that serialized requests do not return

@@ -18,9 +18,9 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"etcd/lease"
-	"etcd/mvcc/backend"
-	"etcd/pkg/traceutil"
+	"etcd-with-comments/lease"
+	"etcd-with-comments/mvcc/backend"
+	"etcd-with-comments/pkg/traceutil"
 
 	"go.uber.org/zap"
 )

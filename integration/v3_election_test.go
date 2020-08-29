@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/clientv3/concurrency"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/concurrency"
 )
 
 // TestElectionWait tests if followers can correctly wait for elections.
@@ -201,7 +201,7 @@ func TestElectionSessionRecampaign(t *testing.T) {
 // TestElectionOnPrefixOfExistingKey checks that a single
 // candidate can be elected on a new key that is a prefix
 // of an existing key. To wit, check for regression
-// of bug #6278. https://github.com/etcd-io/etcd/issues/6278
+// of bug #6278. https://github.com/etcd-io/etcd-with-comments/issues/6278
 //
 func TestElectionOnPrefixOfExistingKey(t *testing.T) {
 	clus := NewClusterV3(t, &ClusterConfig{Size: 1})

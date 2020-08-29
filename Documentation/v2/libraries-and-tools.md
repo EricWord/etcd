@@ -7,7 +7,7 @@
 
 **Tools**
 
-- [etcdctl](https://github.com/coreos/etcd/tree/master/etcdctl) - A command line client for etcd
+- [etcdctl](https://github.com/coreos/etcd-with-comments/tree/master/etcdctl) - A command line client for etcd
 - [etcd-backup](https://github.com/fanhattan/etcd-backup) - A powerful command line utility for dumping/restoring etcd - Supports v2
 - [etcd-dump](https://npmjs.org/package/etcd-dump) - Command line utility for dumping/restoring etcd.
 - [etcd-fs](https://github.com/xetorthio/etcd-fs) - FUSE filesystem for etcd
@@ -22,12 +22,12 @@
 
 **Go libraries**
 
-- [etcd/client](https://github.com/etcd-io/etcd/blob/master/client) - the officially maintained Go client
+- [etcd-with-comments/client](https://github.com/etcd-io/etcd-with-comments/blob/master/client) - the officially maintained Go client
 - [go-etcd](https://github.com/coreos/go-etcd) - the deprecated official client. May be useful for older (<2.0.0) versions of etcd.
 
 **Java libraries**
 
-- [boonproject/etcd](https://github.com/boonproject/boon/blob/master/etcd/README.md) - Supports v2, Async/Sync and waits
+- [boonproject/etcd](https://github.com/boonproject/boon/blob/master/etcd-with-comments/README.md) - Supports v2, Async/Sync and waits
 - [justinsb/jetcd](https://github.com/justinsb/jetcd)
 - [diwakergupta/jetcd](https://github.com/diwakergupta/jetcd) - Supports v2
 - [jurmous/etcd4j](https://github.com/jurmous/etcd4j) - Supports v2, Async/Sync, waits and SSL

@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 )
 
 func TestCtlV3EndpointHealth(t *testing.T) { testCtl(t, endpointHealthTest, withQuorum()) }

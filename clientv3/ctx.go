@@ -18,8 +18,8 @@ import (
 	"context"
 	"strings"
 
-	"etcd/etcdserver/api/v3rpc/rpctypes"
-	"etcd/version"
+	"etcd-with-comments/etcdserver/api/v3rpc/rpctypes"
+	"etcd-with-comments/version"
 	"google.golang.org/grpc/metadata"
 )
 

@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"etcd/embed"
+	"etcd-with-comments/embed"
 	"golang.org/x/crypto/bcrypt"
 )
 

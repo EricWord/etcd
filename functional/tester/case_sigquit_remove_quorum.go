@@ -20,8 +20,8 @@ import (
 	"strings"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/functional/rpcpb"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/functional/rpcpb"
 
 	"go.uber.org/zap"
 )

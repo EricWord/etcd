@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"etcd/raft/raftpb"
+	"etcd-with-comments/raft/raftpb"
 )
 
 type cluster struct {

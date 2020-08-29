@@ -330,7 +330,7 @@ etcdctl is under the Apache 2.0 license. See the [LICENSE][license] file for det
 
 [authentication]: ../Documentation/v2/authentication.md
 [etcd]: https://github.com/coreos/etcd
-[github-release]: https://github.com/coreos/etcd/releases/
+[github-release]: https://github.com/coreos/etcd-with-comments/releases/
 [license]: ../LICENSE
 [semver]: http://semver.org/
 [username-flag]: #--username--u

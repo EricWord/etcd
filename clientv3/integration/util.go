@@ -19,7 +19,7 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 )
 
 // mustWaitPinReady waits up to 3-second until connection is up (pin endpoint).

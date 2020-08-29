@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"etcd/pkg/transport"
+	"etcd-with-comments/pkg/transport"
 
 	"sigs.k8s.io/yaml"
 )

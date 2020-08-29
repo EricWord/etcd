@@ -20,9 +20,9 @@ import (
 	"testing"
 	"time"
 
-	epb "etcd/etcdserver/api/v3election/v3electionpb"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/pkg/testutil"
+	epb "etcd-with-comments/etcdserver/api/v3election/v3electionpb"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/pkg/testutil"
 )
 
 // TestV3ElectionCampaign checks that Campaign will not give

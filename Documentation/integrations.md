@@ -4,7 +4,7 @@ title: Libraries and tools
 
 **Tools**
 
-- [etcdctl](https://github.com/etcd-io/etcd/tree/master/etcdctl) - A command line client for etcd
+- [etcdctl](https://github.com/etcd-io/etcd-with-comments/tree/master/etcdctl) - A command line client for etcd
 - [etcd-backup](https://github.com/fanhattan/etcd-backup) - A powerful command line utility for dumping/restoring etcd - Supports v2
 - [etcd-dump](https://npmjs.org/package/etcd-dump) - Command line utility for dumping/restoring etcd.
 - [etcd-fs](https://github.com/xetorthio/etcd-fs) - FUSE filesystem for etcd
@@ -21,15 +21,15 @@ title: Libraries and tools
 
 **Go libraries**
 
-- [etcd/clientv3](https://github.com/etcd-io/etcd/blob/master/clientv3) - the officially maintained Go client for v3
-- [etcd/client](https://github.com/etcd-io/etcd/blob/master/client) - the officially maintained Go client for v2
+- [etcd-with-comments/clientv3](https://github.com/etcd-io/etcd-with-comments/blob/master/clientv3) - the officially maintained Go client for v3
+- [etcd-with-comments/client](https://github.com/etcd-io/etcd-with-comments/blob/master/client) - the officially maintained Go client for v2
 - [go-etcd](https://github.com/coreos/go-etcd) - the deprecated official client. May be useful for older (<2.0.0) versions of etcd.
-- [encWrapper](https://github.com/lumjjb/etcd/tree/enc_wrapper/clientwrap/encwrapper) - encWrapper is an encryption wrapper for the etcd client Keys API/KV.
+- [encWrapper](https://github.com/lumjjb/etcd-with-comments/tree/enc_wrapper/clientwrap/encwrapper) - encWrapper is an encryption wrapper for the etcd client Keys API/KV.
 
 **Java libraries**
 
 - [coreos/jetcd](https://github.com/etcd-io/jetcd) - Supports v3
-- [boonproject/etcd](https://github.com/boonproject/boon/blob/master/etcd/README.md) - Supports v2, Async/Sync and waits
+- [boonproject/etcd](https://github.com/boonproject/boon/blob/master/etcd-with-comments/README.md) - Supports v2, Async/Sync and waits
 - [justinsb/jetcd](https://github.com/justinsb/jetcd)
 - [diwakergupta/jetcd](https://github.com/diwakergupta/jetcd) - Supports v2
 - [jurmous/etcd4j](https://github.com/jurmous/etcd4j) - Supports v2, Async/Sync, waits and SSL

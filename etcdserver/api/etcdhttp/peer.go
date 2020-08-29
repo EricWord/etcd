@@ -21,12 +21,12 @@ import (
 	"strconv"
 	"strings"
 
-	"etcd/etcdserver"
-	"etcd/etcdserver/api"
-	"etcd/etcdserver/api/membership"
-	"etcd/etcdserver/api/rafthttp"
-	"etcd/lease/leasehttp"
-	"etcd/pkg/types"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/etcdserver/api"
+	"etcd-with-comments/etcdserver/api/membership"
+	"etcd-with-comments/etcdserver/api/rafthttp"
+	"etcd-with-comments/lease/leasehttp"
+	"etcd-with-comments/pkg/types"
 
 	"go.uber.org/zap"
 )

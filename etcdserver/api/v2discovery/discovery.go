@@ -29,9 +29,9 @@ import (
 	"strings"
 	"time"
 
-	"etcd/client"
-	"etcd/pkg/transport"
-	"etcd/pkg/types"
+	"etcd-with-comments/client"
+	"etcd-with-comments/pkg/transport"
+	"etcd-with-comments/pkg/types"
 
 	"github.com/coreos/pkg/capnslog"
 	"github.com/jonboulle/clockwork"

@@ -26,10 +26,10 @@ import (
 	"strings"
 	"time"
 
-	"etcd/etcdserver"
-	"etcd/etcdserver/api/v2error"
-	"etcd/etcdserver/etcdserverpb"
-	"etcd/pkg/types"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/etcdserver/api/v2error"
+	"etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/pkg/types"
 
 	"github.com/coreos/pkg/capnslog"
 	"go.uber.org/zap"
@@ -48,7 +48,7 @@ const (
 )
 
 var (
-	plog = capnslog.NewPackageLogger("etcd/v3", "etcdserver/auth")
+	plog = capnslog.NewPackageLogger("etcd-with-comments/v3", "etcdserver/auth")
 )
 
 var rootRole = Role{

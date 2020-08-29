@@ -23,10 +23,10 @@ import (
 	"net/http"
 	"time"
 
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/lease"
-	"etcd/lease/leasepb"
-	"etcd/pkg/httputil"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/lease"
+	"etcd-with-comments/lease/leasepb"
+	"etcd-with-comments/pkg/httputil"
 )
 
 var (

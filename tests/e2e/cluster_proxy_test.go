@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"etcd/pkg/expect"
+	"etcd-with-comments/pkg/expect"
 )
 
 type proxyEtcdProcess struct {

@@ -20,7 +20,7 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"etcd/contrib/recipes"
+	"etcd-with-comments/contrib/recipes"
 )
 
 const (

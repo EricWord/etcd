@@ -17,9 +17,9 @@ package recipe
 import (
 	"context"
 
-	v3 "etcd/clientv3"
-	"etcd/clientv3/concurrency"
-	"etcd/mvcc/mvccpb"
+	v3 "etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/concurrency"
+	"etcd-with-comments/mvcc/mvccpb"
 )
 
 type RWMutex struct {

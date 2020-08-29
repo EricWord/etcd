@@ -18,8 +18,8 @@ import (
 	"testing"
 
 	"github.com/cockroachdb/datadriven"
-	"etcd/raft"
-	"etcd/raft/raftpb"
+	"etcd-with-comments/raft"
+	"etcd-with-comments/raft/raftpb"
 )
 
 func (env *InteractionEnv) handleProcessReady(t *testing.T, d datadriven.TestData) error {
@@ -34,7 +34,7 @@ func (env *InteractionEnv) ProcessReady(idx int) error {
 	rd := rn.Ready()
 	env.Output.WriteString(raft.DescribeReady(rd, defaultEntryFormatter))
 	// TODO(tbg): the order of operations here is not necessarily safe. See:
-	// https://github.com/etcd-io/etcd/pull/10861
+	// https://github.com/etcd-io/etcd-with-comments/pull/10861
 	if !raft.IsEmptyHardState(rd.HardState) {
 		if err := s.SetHardState(rd.HardState); err != nil {
 			return err

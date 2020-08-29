@@ -136,7 +136,7 @@ cleanbranch="${NEWBRANCHUNIQ}"
 gitamcleanup=true
 for pull in "${PULLS[@]}"; do
   echo "+++ Downloading patch to /tmp/${pull}.patch (in case you need to do this again)"
-  curl -o "/tmp/${pull}.patch" -sSL "http://github.com/etcd-io/etcd/pull/${pull}.patch"
+  curl -o "/tmp/${pull}.patch" -sSL "http://github.com/etcd-io/etcd-with-comments/pull/${pull}.patch"
   echo
   echo "+++ About to attempt cherry pick of PR. To reattempt:"
   echo "  $ git am -3 /tmp/${pull}.patch"
@@ -198,8 +198,8 @@ if [[ -n "${DRY_RUN}" ]]; then
   exit 0
 fi
 
-if git remote -v | grep ^${FORK_REMOTE} | grep etcd/etcd.git; then
-  echo "!!! You have ${FORK_REMOTE} configured as your etcd/etcd.git"
+if git remote -v | grep ^${FORK_REMOTE} | grep etcd-with-comments/etcd.git; then
+  echo "!!! You have ${FORK_REMOTE} configured as your etcd-with-comments/etcd.git"
   echo "This isn't normal. Leaving you with push instructions:"
   echo
   echo "+++ First manually push the branch this script created:"

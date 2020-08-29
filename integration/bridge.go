@@ -21,7 +21,7 @@ import (
 	"net"
 	"sync"
 
-	"etcd/pkg/transport"
+	"etcd-with-comments/pkg/transport"
 )
 
 // bridge creates a unix socket bridge to another unix socket, making it possible

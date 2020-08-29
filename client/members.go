@@ -23,7 +23,7 @@ import (
 	"net/url"
 	"path"
 
-	"etcd/pkg/types"
+	"etcd-with-comments/pkg/types"
 )
 
 var (

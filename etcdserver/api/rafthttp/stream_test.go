@@ -26,11 +26,11 @@ import (
 	"testing"
 	"time"
 
-	stats "etcd/etcdserver/api/v2stats"
-	"etcd/pkg/testutil"
-	"etcd/pkg/types"
-	"etcd/raft/raftpb"
-	"etcd/version"
+	stats "etcd-with-comments/etcdserver/api/v2stats"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/pkg/types"
+	"etcd-with-comments/raft/raftpb"
+	"etcd-with-comments/version"
 
 	"github.com/coreos/go-semver/semver"
 	"go.uber.org/zap"

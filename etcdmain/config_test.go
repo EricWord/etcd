@@ -23,7 +23,7 @@ import (
 	"strings"
 	"testing"
 
-	"etcd/embed"
+	"etcd-with-comments/embed"
 	"sigs.k8s.io/yaml"
 )
 

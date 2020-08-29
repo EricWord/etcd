@@ -184,16 +184,23 @@ func (pr *Progress) OptimisticUpdate(n uint64) { pr.Next = n + 1 }
 //
 // If the rejection is genuine, Next is lowered sensibly, and the Progress is
 // cleared for sending log entries.
+//两个参数都是MsgAppResp消息携带的信息
+//rejected是被拒绝MsgApp消息的Index字段值
+//last是被拒绝MsgApprResp消息的RejectHint字段值(对应follower节点raftLog中最后一条entry记录的索引)
 func (pr *Progress) MaybeDecrTo(rejected, last uint64) bool {
 	if pr.State == StateReplicate {
 		// The rejection must be stale if the progress has matched and "rejected"
 		// is smaller than "match".
+		//出现过时的MsgAppResp消息，则直接忽略
 		if rejected <= pr.Match {
 			return false
 		}
 		// Directly decrease next to match + 1.
 		//
 		// TODO(tbg): why not use last if it's larger?
+		//处于ProgressStateReplicate状态时，发送
+		//MsgApp消息的同时会直接调用Progress.optimisticUpdate()方法增加next
+		//这就使得next可能会比Match大很多，这里回退next到match位置，并在后面重新发送MsgApp消息进行重试
 		pr.Next = pr.Match + 1
 		return true
 	}
@@ -201,12 +208,16 @@ func (pr *Progress) MaybeDecrTo(rejected, last uint64) bool {
 	// The rejection must be stale if "rejected" does not match next - 1. This
 	// is because non-replicating followers are probed one entry at a time.
 	if pr.Next-1 != rejected {
+		//出现过时的MsgAppResp消息，直接忽略
 		return false
 	}
 
+	//根据MsgAppResp携带的信息重置next
 	if pr.Next = min(rejected, last+1); pr.Next < 1 {
+		//将next重置为1
 		pr.Next = 1
 	}
+	//next重置完成，恢复消息发送，并在后面重新发送MsgApp消息
 	pr.ProbeSent = false
 	return true
 }
@@ -219,10 +230,13 @@ func (pr *Progress) MaybeDecrTo(rejected, last uint64) bool {
 // log entries again.
 func (pr *Progress) IsPaused() bool {
 	switch pr.State {
+	//StateProbe状态时检查Paused字段
 	case StateProbe:
 		return pr.ProbeSent
+	//	StateReplicate状态是检查已发送未响应的消息个数
 	case StateReplicate:
 		return pr.Inflights.Full()
+	//	StateSnapshot状态时始终可以发送消息
 	case StateSnapshot:
 		return true
 	default:

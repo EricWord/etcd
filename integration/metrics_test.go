@@ -22,10 +22,10 @@ import (
 	"testing"
 	"time"
 
-	"etcd/etcdserver"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/pkg/testutil"
-	"etcd/pkg/transport"
+	"etcd-with-comments/etcdserver"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/pkg/transport"
 )
 
 // TestMetricDbSizeBoot checks that the db size metric is set on boot.

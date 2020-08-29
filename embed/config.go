@@ -27,15 +27,15 @@ import (
 	"sync"
 	"time"
 
-	"etcd/etcdserver"
-	"etcd/etcdserver/api/v3compactor"
-	"etcd/pkg/flags"
-	"etcd/pkg/logutil"
-	"etcd/pkg/netutil"
-	"etcd/pkg/srv"
-	"etcd/pkg/tlsutil"
-	"etcd/pkg/transport"
-	"etcd/pkg/types"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/etcdserver/api/v3compactor"
+	"etcd-with-comments/pkg/flags"
+	"etcd-with-comments/pkg/logutil"
+	"etcd-with-comments/pkg/netutil"
+	"etcd-with-comments/pkg/srv"
+	"etcd-with-comments/pkg/tlsutil"
+	"etcd-with-comments/pkg/transport"
+	"etcd-with-comments/pkg/types"
 
 	bolt "go.etcd.io/bbolt"
 	"go.uber.org/zap"
@@ -165,7 +165,7 @@ type Config struct {
 	//
 	// If single-node, it advances ticks regardless.
 	//
-	// See https://github.com/etcd-io/etcd/issues/9333 for more detail.
+	// See https://github.com/etcd-io/etcd-with-comments/issues/9333 for more detail.
 	InitialElectionTickAdvance bool `json:"initial-election-tick-advance"`
 
 	// BackendBatchInterval is the maximum time before commit the backend transaction.
@@ -253,7 +253,7 @@ type Config struct {
 	// CVE-2018-5702 reference:
 	// - https://bugs.chromium.org/p/project-zero/issues/detail?id=1447#c2
 	// - https://github.com/transmission/transmission/pull/468
-	// - https://github.com/etcd-io/etcd/issues/9353
+	// - https://github.com/etcd-io/etcd-with-comments/issues/9353
 	HostWhitelist map[string]struct{}
 
 	// UserHandlers is for registering users handlers and only used for

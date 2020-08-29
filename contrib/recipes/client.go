@@ -18,8 +18,8 @@ import (
 	"context"
 	"errors"
 
-	v3 "etcd/clientv3"
-	spb "etcd/mvcc/mvccpb"
+	v3 "etcd-with-comments/clientv3"
+	spb "etcd-with-comments/mvcc/mvccpb"
 )
 
 var (

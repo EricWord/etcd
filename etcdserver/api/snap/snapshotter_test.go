@@ -23,10 +23,10 @@ import (
 	"reflect"
 	"testing"
 
-	"etcd/pkg/fileutil"
+	"etcd-with-comments/pkg/fileutil"
 
-	"etcd/raft/raftpb"
-	"etcd/wal/walpb"
+	"etcd-with-comments/raft/raftpb"
+	"etcd-with-comments/wal/walpb"
 	"go.uber.org/zap"
 )
 

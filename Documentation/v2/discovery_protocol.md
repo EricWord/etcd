@@ -20,7 +20,7 @@ The idea of discovery protocol is to use an internal etcd cluster to coordinate 
 
 In the following example workflow, we will list each step of protocol in curl format for ease of understanding.
 
-By convention the etcd discovery protocol uses the key prefix `_etcd/registry`. If `http://example.com` hosts an etcd cluster for discovery service, a full URL to discovery keyspace will be `http://example.com/v2/keys/_etcd/registry`. We will use this as the URL prefix in the example.
+By convention the etcd discovery protocol uses the key prefix `_etcd-with-comments/registry`. If `http://example.com` hosts an etcd cluster for discovery service, a full URL to discovery keyspace will be `http://example.com/v2/keys/_etcd-with-comments/registry`. We will use this as the URL prefix in the example.
 
 ### Creating a New Discovery Token
 
@@ -35,7 +35,7 @@ UUID=$(uuidgen)
 You need to specify the expected cluster size for this discovery token. The size is used by the discovery service to know when it has found all members that will initially form the cluster.
 
 ```
-curl -X PUT http://example.com/v2/keys/_etcd/registry/${UUID}/_config/size -d value=${cluster_size}
+curl -X PUT http://example.com/v2/keys/_etcd-with-comments/registry/${UUID}/_config/size -d value=${cluster_size}
 ```
 
 Usually the cluster size is 3, 5 or 7. Check [optimal cluster size][cluster-size] for more details.
@@ -49,7 +49,7 @@ Now that you have your discovery URL, you can use it as `-discovery` flag and br
 The first thing for etcd process is to register itself into the discovery URL as a member. This is done by creating member ID as a key in the discovery URL.
 
 ```
-curl -X PUT http://example.com/v2/keys/_etcd/registry/${UUID}/${member_id}?prevExist=false -d value="${member_name}=${member_peer_url_1}&${member_name}=${member_peer_url_2}"
+curl -X PUT http://example.com/v2/keys/_etcd-with-comments/registry/${UUID}/${member_id}?prevExist=false -d value="${member_name}=${member_peer_url_1}&${member_name}=${member_peer_url_2}"
 ```
 
 ### Checking the Status
@@ -57,8 +57,8 @@ curl -X PUT http://example.com/v2/keys/_etcd/registry/${UUID}/${member_id}?prevE
 It checks the expected cluster size and registration status in discovery URL, and decides what the next action is.
 
 ```
-curl -X GET http://example.com/v2/keys/_etcd/registry/${UUID}/_config/size
-curl -X GET http://example.com/v2/keys/_etcd/registry/${UUID}
+curl -X GET http://example.com/v2/keys/_etcd-with-comments/registry/${UUID}/_config/size
+curl -X GET http://example.com/v2/keys/_etcd-with-comments/registry/${UUID}
 ```
 
 If registered members are still not enough, it will wait for left members to appear.
@@ -73,7 +73,7 @@ In etcd implementation, the member may check the cluster status even before regi
 The wait process is described in detail in the [etcd API documentation][api].
 
 ```
-curl -X GET http://example.com/v2/keys/_etcd/registry/${UUID}?wait=true&waitIndex=${current_etcd_index}
+curl -X GET http://example.com/v2/keys/_etcd-with-comments/registry/${UUID}?wait=true&waitIndex=${current_etcd_index}
 ```
 
 It keeps waiting until finding all members.
@@ -84,7 +84,7 @@ CoreOS Inc. hosts a public discovery service at https://discovery.etcd.io/ , whi
 
 ### Mask Key Prefix
 
-Public discovery service will redirect `https://discovery.etcd.io/${UUID}` to etcd cluster behind for the key at `/v2/keys/_etcd/registry`. It masks register key prefix for short and readable discovery url.
+Public discovery service will redirect `https://discovery.etcd.io/${UUID}` to etcd cluster behind for the key at `/v2/keys/_etcd-with-comments/registry`. It masks register key prefix for short and readable discovery url.
 
 ### Get new token
 

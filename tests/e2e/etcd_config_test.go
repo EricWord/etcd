@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"etcd/pkg/expect"
+	"etcd-with-comments/pkg/expect"
 )
 
 const exampleConfigFile = "../../etcd.conf.yml.sample"

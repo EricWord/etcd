@@ -15,9 +15,9 @@
 package mockstorage
 
 import (
-	"etcd/pkg/testutil"
-	"etcd/raft"
-	"etcd/raft/raftpb"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/raft"
+	"etcd-with-comments/raft/raftpb"
 )
 
 type storageRecorder struct {

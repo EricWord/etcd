@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"os"
 
-	"etcd/client"
+	"etcd-with-comments/client"
 )
 
 const (

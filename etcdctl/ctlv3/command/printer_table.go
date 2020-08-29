@@ -17,8 +17,8 @@ package command
 import (
 	"os"
 
-	v3 "etcd/clientv3"
-	"etcd/clientv3/snapshot"
+	v3 "etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/snapshot"
 
 	"github.com/olekukonko/tablewriter"
 )

@@ -17,7 +17,7 @@ package v2store
 import (
 	"testing"
 
-	"etcd/etcdserver/api/v2error"
+	"etcd-with-comments/etcdserver/api/v2error"
 )
 
 // TestEventQueue tests a queue with capacity = 100

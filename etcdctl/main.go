@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"os"
 
-	"etcd/etcdctl/ctlv2"
-	"etcd/etcdctl/ctlv3"
+	"etcd-with-comments/etcdctl/ctlv2"
+	"etcd-with-comments/etcdctl/ctlv3"
 )
 
 const (

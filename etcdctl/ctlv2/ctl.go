@@ -20,8 +20,8 @@ import (
 	"os"
 	"time"
 
-	"etcd/etcdctl/ctlv2/command"
-	"etcd/version"
+	"etcd-with-comments/etcdctl/ctlv2/command"
+	"etcd-with-comments/version"
 
 	"github.com/urfave/cli"
 )

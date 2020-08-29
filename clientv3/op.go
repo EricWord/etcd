@@ -14,7 +14,7 @@
 
 package clientv3
 
-import pb "etcd/etcdserver/etcdserverpb"
+import pb "etcd-with-comments/etcdserver/etcdserverpb"
 
 type opType int
 

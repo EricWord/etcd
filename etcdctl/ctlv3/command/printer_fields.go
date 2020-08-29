@@ -17,10 +17,10 @@ package command
 import (
 	"fmt"
 
-	v3 "etcd/clientv3"
-	"etcd/clientv3/snapshot"
-	pb "etcd/etcdserver/etcdserverpb"
-	spb "etcd/mvcc/mvccpb"
+	v3 "etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/snapshot"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	spb "etcd-with-comments/mvcc/mvccpb"
 )
 
 type fieldsPrinter struct{ printer }

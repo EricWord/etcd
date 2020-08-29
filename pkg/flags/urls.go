@@ -19,7 +19,7 @@ import (
 	"net/url"
 	"strings"
 
-	"etcd/pkg/types"
+	"etcd-with-comments/pkg/types"
 )
 
 // URLsValue wraps "types.URLs".

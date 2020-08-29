@@ -14,7 +14,7 @@
 
 package tester
 
-import "etcd/functional/rpcpb"
+import "etcd-with-comments/functional/rpcpb"
 
 type noCheck struct{}
 

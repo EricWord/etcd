@@ -14,7 +14,7 @@
 
 package raft
 
-import pb "etcd/raft/raftpb"
+import pb "etcd-with-comments/raft/raftpb"
 
 // unstable.entries[i] has raft log position i+unstable.offset.
 // Note that unstable.offset may be less than the highest log

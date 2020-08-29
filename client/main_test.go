@@ -23,9 +23,9 @@ import (
 	"testing"
 	"time"
 
-	"etcd/integration"
-	"etcd/pkg/testutil"
-	"etcd/pkg/transport"
+	"etcd-with-comments/integration"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/pkg/transport"
 )
 
 var exampleEndpoints []string

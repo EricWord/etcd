@@ -1,14 +1,14 @@
-# etcd/clientv3
+# etcd-with-comments/clientv3
 
 [![Docs](https://img.shields.io/badge/docs-latest-green.svg)](https://etcd.io/docs)
-[![Godoc](https://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](https://godoc.org/etcd/clientv3)
+[![Godoc](https://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](https://godoc.org/etcd-with-comments/clientv3)
 
-`etcd/clientv3` is the official Go etcd client for v3.
+`etcd-with-comments/clientv3` is the official Go etcd client for v3.
 
 ## Install
 
 ```bash
-go get etcd/clientv3
+go get etcd-with-comments/clientv3
 ```
 
 ## Get started
@@ -48,7 +48,7 @@ For full compatibility, it is recommended to vendor builds using etcd's vendored
 etcd client returns 2 types of errors:
 
 1. context error: canceled or deadline exceeded.
-2. gRPC error: see [api/v3rpc/rpctypes](https://godoc.org/etcd/etcdserver/api/v3rpc/rpctypes).
+2. gRPC error: see [api/v3rpc/rpctypes](https://godoc.org/etcd-with-comments/etcdserver/api/v3rpc/rpctypes).
 
 Here is the example code to handle client errors:
 
@@ -70,11 +70,11 @@ if err != nil {
 
 ## Metrics
 
-The etcd client optionally exposes RPC metrics through [go-grpc-prometheus](https://github.com/grpc-ecosystem/go-grpc-prometheus). See the [examples](https://github.com/etcd-io/etcd/blob/master/clientv3/example_metrics_test.go).
+The etcd client optionally exposes RPC metrics through [go-grpc-prometheus](https://github.com/grpc-ecosystem/go-grpc-prometheus). See the [examples](https://github.com/etcd-io/etcd-with-comments/blob/master/clientv3/example_metrics_test.go).
 
 ## Namespacing
 
-The [namespace](https://godoc.org/etcd/clientv3/namespace) package provides `clientv3` interface wrappers to transparently isolate client requests to a user-defined prefix.
+The [namespace](https://godoc.org/etcd-with-comments/clientv3/namespace) package provides `clientv3` interface wrappers to transparently isolate client requests to a user-defined prefix.
 
 ## Request size limit
 
@@ -82,4 +82,4 @@ Client request size limit is configurable via `clientv3.Config.MaxCallSendMsgSiz
 
 ## Examples
 
-More code examples can be found at [GoDoc](https://godoc.org/etcd/clientv3).
+More code examples can be found at [GoDoc](https://godoc.org/etcd-with-comments/clientv3).

@@ -6,7 +6,7 @@ title: Error Code
 
 [v3-docs]: ../docs.md#documentation
 
-This document describes the error code used in key space '/v2/keys'. Feel free to import 'github.com/coreos/etcd/error' to use.
+This document describes the error code used in key space '/v2/keys'. Feel free to import 'github.com/coreos/etcd-with-comments/error' to use.
 
 It's categorized into four groups:
 

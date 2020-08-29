@@ -19,9 +19,9 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/integration"
-	"etcd/pkg/testutil"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/integration"
+	"etcd-with-comments/pkg/testutil"
 )
 
 func TestEndpointSwitchResolvesViolation(t *testing.T) {

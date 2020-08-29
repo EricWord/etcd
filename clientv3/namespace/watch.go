@@ -18,7 +18,7 @@ import (
 	"context"
 	"sync"
 
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 )
 
 type watcherPrefix struct {

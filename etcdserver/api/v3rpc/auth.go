@@ -17,8 +17,8 @@ package v3rpc
 import (
 	"context"
 
-	"etcd/etcdserver"
-	pb "etcd/etcdserver/etcdserverpb"
+	"etcd-with-comments/etcdserver"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
 )
 
 type AuthServer struct {

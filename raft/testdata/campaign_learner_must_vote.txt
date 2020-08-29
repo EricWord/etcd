@@ -6,7 +6,7 @@
 # of voters (as of the latest config) being available.
 #
 # See:
-# https://github.com/etcd-io/etcd/pull/10998
+# https://github.com/etcd-io/etcd-with-comments/pull/10998
 
 # Turn output off during boilerplate.
 log-level none

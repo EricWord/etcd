@@ -20,10 +20,10 @@ import (
 	"testing"
 	"time"
 
-	stats "etcd/etcdserver/api/v2stats"
-	"etcd/pkg/testutil"
-	"etcd/pkg/types"
-	"etcd/raft/raftpb"
+	stats "etcd-with-comments/etcdserver/api/v2stats"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/pkg/types"
+	"etcd-with-comments/raft/raftpb"
 
 	"github.com/xiang90/probing"
 )

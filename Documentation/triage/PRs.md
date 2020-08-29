@@ -4,13 +4,13 @@
 
 Speed up PR management.
 
-The `etcd` PRs are listed at https://github.com/etcd-io/etcd/pulls 
+The `etcd` PRs are listed at https://github.com/etcd-io/etcd-with-comments/pulls 
 A PR can have various labels, milestone, reviewer etc. The detailed list of labels can be found at 
 https://github.com/kubernetes/kubernetes/labels
 
 Following are few example searches on PR for convenience:
-* [Open PRS for milestone etcd-v3.4](https://github.com/etcd-io/etcd/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aopen+milestone%3Aetcd-v3.4)
-* [PRs under investigation](https://github.com/etcd-io/etcd/labels/Investigating)
+* [Open PRS for milestone etcd-v3.4](https://github.com/etcd-io/etcd-with-comments/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aopen+milestone%3Aetcd-v3.4)
+* [PRs under investigation](https://github.com/etcd-io/etcd-with-comments/labels/Investigating)
 
 ## Scope
 

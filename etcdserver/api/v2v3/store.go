@@ -22,11 +22,11 @@ import (
 	"strings"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/clientv3/concurrency"
-	"etcd/etcdserver/api/v2error"
-	"etcd/etcdserver/api/v2store"
-	"etcd/mvcc/mvccpb"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/concurrency"
+	"etcd-with-comments/etcdserver/api/v2error"
+	"etcd-with-comments/etcdserver/api/v2store"
+	"etcd-with-comments/mvcc/mvccpb"
 )
 
 // store implements the Store interface for V2 using

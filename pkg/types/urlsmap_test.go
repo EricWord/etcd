@@ -15,7 +15,7 @@
 package types
 
 import (
-	"etcd/pkg/testutil"
+	"etcd-with-comments/pkg/testutil"
 	"reflect"
 	"testing"
 )

@@ -17,7 +17,7 @@ package clientv3
 import (
 	"testing"
 
-	"etcd/mvcc/mvccpb"
+	"etcd-with-comments/mvcc/mvccpb"
 )
 
 func TestEvent(t *testing.T) {

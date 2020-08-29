@@ -21,8 +21,8 @@ import (
 	"math/rand"
 	"sync"
 
-	"etcd/clientv3"
-	"etcd/clientv3/concurrency"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/concurrency"
 )
 
 // ExampleSTM_apply shows how to use STM with a transactional

@@ -950,7 +950,7 @@ To defragment a data directory directly, use the `--data-dir` flag:
 # Defragment while etcd is not running
 ./etcdctl defrag --data-dir default.etcd
 # success (exit status 0)
-# Error: cannot open database at default.etcd/member/snap/db
+# Error: cannot open database at default.etcd-with-comments/member/snap/db
 ```
 
 #### Remarks

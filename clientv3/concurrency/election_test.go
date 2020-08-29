@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/clientv3/concurrency"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/concurrency"
 )
 
 func TestResumeElection(t *testing.T) {

@@ -19,9 +19,9 @@ import (
 	"strings"
 	"testing"
 
-	"etcd/clientv3"
-	"etcd/etcdserver/api/v2store"
-	"etcd/etcdserver/api/v2v3"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/etcdserver/api/v2store"
+	"etcd-with-comments/etcdserver/api/v2v3"
 )
 
 // TODO: fix tests

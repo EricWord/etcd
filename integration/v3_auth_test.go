@@ -21,11 +21,11 @@ import (
 	"testing"
 	"time"
 
-	"etcd/auth/authpb"
-	"etcd/clientv3"
-	"etcd/etcdserver/api/v3rpc/rpctypes"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/pkg/testutil"
+	"etcd-with-comments/auth/authpb"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/etcdserver/api/v3rpc/rpctypes"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/pkg/testutil"
 )
 
 // TestV3AuthEmptyUserGet ensures that a get with an empty user will return an empty user error.

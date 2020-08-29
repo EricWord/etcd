@@ -29,7 +29,7 @@ import (
 	"sync"
 	"time"
 
-	"etcd/version"
+	"etcd-with-comments/version"
 )
 
 var (

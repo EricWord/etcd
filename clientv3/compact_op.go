@@ -15,7 +15,7 @@
 package clientv3
 
 import (
-	pb "etcd/etcdserver/etcdserverpb"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
 )
 
 // CompactOp represents a compact operation.

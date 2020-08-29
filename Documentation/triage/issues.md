@@ -4,7 +4,7 @@
 
 Speed up issue management.
 
-The `etcd` issues are listed at https://github.com/etcd-io/etcd/issues
+The `etcd` issues are listed at https://github.com/etcd-io/etcd-with-comments/issues
 and are identified with labels. For example, an issue that is identified
 as a bug will eventually be set to label `area/bug `. New issues will
 start out without any labels, but typically `etcd` maintainers and active contributors
@@ -12,9 +12,9 @@ add labels based on their findings. The detailed list of labels can be found at
 https://github.com/kubernetes/kubernetes/labels
 
 Following are few predetermined searches on issues for convenience:
-* [Bugs](https://github.com/etcd-io/etcd/labels/area%2Fbug)
-* [Help Wanted](https://github.com/etcd-io/etcd/labels/Help%20Wanted)
-* [Longest untriaged issues](https://github.com/etcd-io/etcd/issues?utf8=%E2%9C%93&q=is%3Aopen+sort%3Aupdated-asc+)
+* [Bugs](https://github.com/etcd-io/etcd-with-comments/labels/area%2Fbug)
+* [Help Wanted](https://github.com/etcd-io/etcd-with-comments/labels/Help%20Wanted)
+* [Longest untriaged issues](https://github.com/etcd-io/etcd-with-comments/issues?utf8=%E2%9C%93&q=is%3Aopen+sort%3Aupdated-asc+)
 
 ## Scope
 

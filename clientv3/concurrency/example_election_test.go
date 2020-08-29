@@ -21,8 +21,8 @@ import (
 	"sync"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/clientv3/concurrency"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/concurrency"
 )
 
 func ExampleElection_Campaign() {

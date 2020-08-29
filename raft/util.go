@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"strings"
 
-	pb "etcd/raft/raftpb"
+	pb "etcd-with-comments/raft/raftpb"
 )
 
 func (st StateType) MarshalJSON() ([]byte, error) {

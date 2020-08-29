@@ -18,7 +18,7 @@ import (
 	"reflect"
 	"testing"
 
-	"etcd/pkg/testutil"
+	"etcd-with-comments/pkg/testutil"
 )
 
 func TestNewURLs(t *testing.T) {

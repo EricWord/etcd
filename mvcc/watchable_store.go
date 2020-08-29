@@ -15,14 +15,14 @@
 package mvcc
 
 import (
-	"etcd/auth"
+	"etcd-with-comments/auth"
 	"sync"
 	"time"
 
-	"etcd/lease"
-	"etcd/mvcc/backend"
-	"etcd/mvcc/mvccpb"
-	"etcd/pkg/traceutil"
+	"etcd-with-comments/lease"
+	"etcd-with-comments/mvcc/backend"
+	"etcd-with-comments/mvcc/mvccpb"
+	"etcd-with-comments/pkg/traceutil"
 	"go.uber.org/zap"
 )
 
@@ -30,7 +30,7 @@ import (
 var (
 	// chanBufLen is the length of the buffered chan
 	// for sending out watched events.
-	// See https://github.com/etcd-io/etcd/issues/11906 for more detail.
+	// See https://github.com/etcd-io/etcd-with-comments/issues/11906 for more detail.
 	chanBufLen = 128
 
 	// maxWatchersPerSync is the number of watchers to sync in a single batch

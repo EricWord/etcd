@@ -20,7 +20,7 @@ import (
 	"sync"
 	"time"
 
-	"etcd/raft"
+	"etcd-with-comments/raft"
 )
 
 // ServerStats encapsulates various statistics about an EtcdServer and its

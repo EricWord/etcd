@@ -122,7 +122,7 @@ Internally in Raft, second `MemberAdd` call to learner node promotes it to a vot
 Reference
 =========
 
-- Original github issue: [etcd#9161](https://github.com/etcd-io/etcd/issues/9161)
-- Use case: [etcd#3715](https://github.com/etcd-io/etcd/issues/3715)
-- Use case: [etcd#8888](https://github.com/etcd-io/etcd/issues/8888)
-- Use case: [etcd#10114](https://github.com/etcd-io/etcd/issues/10114)
+- Original github issue: [etcd#9161](https://github.com/etcd-io/etcd-with-comments/issues/9161)
+- Use case: [etcd#3715](https://github.com/etcd-io/etcd-with-comments/issues/3715)
+- Use case: [etcd#8888](https://github.com/etcd-io/etcd-with-comments/issues/8888)
+- Use case: [etcd#10114](https://github.com/etcd-io/etcd-with-comments/issues/10114)

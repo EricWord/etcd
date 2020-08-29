@@ -18,9 +18,9 @@ import (
 	"testing"
 	"time"
 
-	"etcd/etcdserver/api/v2error"
-	"etcd/etcdserver/api/v2store"
-	"etcd/pkg/testutil"
+	"etcd-with-comments/etcdserver/api/v2error"
+	"etcd-with-comments/etcdserver/api/v2store"
+	"etcd-with-comments/pkg/testutil"
 )
 
 type StoreCloser interface {

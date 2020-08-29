@@ -15,8 +15,8 @@
 package confchange
 
 import (
-	pb "etcd/raft/raftpb"
-	"etcd/raft/tracker"
+	pb "etcd-with-comments/raft/raftpb"
+	"etcd-with-comments/raft/tracker"
 )
 
 // toConfChangeSingle translates a conf state into 1) a slice of operations creating

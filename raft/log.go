@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"log"
 
-	pb "etcd/raft/raftpb"
+	pb "etcd-with-comments/raft/raftpb"
 )
 
 type raftLog struct {

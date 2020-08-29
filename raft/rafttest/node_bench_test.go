@@ -19,7 +19,7 @@ import (
 	"testing"
 	"time"
 
-	"etcd/raft"
+	"etcd-with-comments/raft"
 )
 
 func BenchmarkProposal3Nodes(b *testing.B) {

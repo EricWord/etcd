@@ -23,11 +23,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/etcdserver"
-	"etcd/etcdserver/api/v3rpc/rpctypes"
-	"etcd/functional/rpcpb"
-	"etcd/raft"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/etcdserver/api/v3rpc/rpctypes"
+	"etcd-with-comments/functional/rpcpb"
+	"etcd-with-comments/raft"
 
 	"go.uber.org/zap"
 	"golang.org/x/time/rate"

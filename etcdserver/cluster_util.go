@@ -24,9 +24,9 @@ import (
 	"strings"
 	"time"
 
-	"etcd/etcdserver/api/membership"
-	"etcd/pkg/types"
-	"etcd/version"
+	"etcd-with-comments/etcdserver/api/membership"
+	"etcd-with-comments/pkg/types"
+	"etcd-with-comments/version"
 
 	"github.com/coreos/go-semver/semver"
 	"go.uber.org/zap"

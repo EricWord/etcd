@@ -21,8 +21,8 @@ import (
 	"testing"
 	"testing/quick"
 
-	pb "etcd/raft/raftpb"
-	"etcd/raft/tracker"
+	pb "etcd-with-comments/raft/raftpb"
+	"etcd-with-comments/raft/tracker"
 )
 
 // TestConfChangeQuick uses quickcheck to verify that simple and joint config

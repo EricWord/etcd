@@ -18,7 +18,7 @@ import (
 	"reflect"
 	"testing"
 
-	"etcd/etcdserver/etcdserverpb"
+	"etcd-with-comments/etcdserver/etcdserverpb"
 )
 
 func TestCompactOp(t *testing.T) {

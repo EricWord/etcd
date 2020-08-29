@@ -27,13 +27,13 @@ import (
 	"sync"
 	"time"
 
-	"etcd/etcdserver/api/v2store"
-	"etcd/mvcc/backend"
-	"etcd/pkg/netutil"
-	"etcd/pkg/types"
-	"etcd/raft"
-	"etcd/raft/raftpb"
-	"etcd/version"
+	"etcd-with-comments/etcdserver/api/v2store"
+	"etcd-with-comments/mvcc/backend"
+	"etcd-with-comments/pkg/netutil"
+	"etcd-with-comments/pkg/types"
+	"etcd-with-comments/raft"
+	"etcd-with-comments/raft/raftpb"
+	"etcd-with-comments/version"
 
 	"github.com/coreos/go-semver/semver"
 	"github.com/prometheus/client_golang/prometheus"
@@ -594,7 +594,7 @@ func (c *RaftCluster) IsReadyToAddVotingMember() bool {
 
 	if nstarted == 1 && nmembers == 2 {
 		// a case of adding a new node to 1-member cluster for restoring cluster data
-		// https://github.com/etcd-io/etcd/blob/master/Documentation/v2/admin_guide.md#restoring-the-cluster
+		// https://github.com/etcd-io/etcd-with-comments/blob/master/Documentation/v2/admin_guide.md#restoring-the-cluster
 		if c.lg != nil {
 			c.lg.Debug("number of started member is 1; can accept add member request")
 		} else {

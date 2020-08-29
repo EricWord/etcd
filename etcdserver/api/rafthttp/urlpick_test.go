@@ -18,7 +18,7 @@ import (
 	"net/url"
 	"testing"
 
-	"etcd/pkg/testutil"
+	"etcd-with-comments/pkg/testutil"
 )
 
 // TestURLPickerPickTwice tests that pick returns a possible url,

@@ -45,11 +45,11 @@ function package {
 		cp "${srcdir}/${bin}" "${target}/${bin}${ext}"
 	done
 
-	cp etcd/README.md "${target}"/README.md
-	cp etcd/etcdctl/README.md "${target}"/README-etcdctl.md
-	cp etcd/etcdctl/READMEv2.md "${target}"/READMEv2-etcdctl.md
+	cp etcd-with-comments/README.md "${target}"/README.md
+	cp etcd-with-comments/etcdctl/README.md "${target}"/README-etcdctl.md
+	cp etcd-with-comments/etcdctl/READMEv2.md "${target}"/READMEv2-etcdctl.md
 
-	cp -R etcd/Documentation "${target}"/Documentation
+	cp -R etcd-with-comments/Documentation "${target}"/Documentation
 }
 
 function main {

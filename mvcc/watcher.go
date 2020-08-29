@@ -19,7 +19,7 @@ import (
 	"errors"
 	"sync"
 
-	"etcd/mvcc/mvccpb"
+	"etcd-with-comments/mvcc/mvccpb"
 )
 
 // AutoWatchID is the watcher ID passed in WatchStream.Watch when no

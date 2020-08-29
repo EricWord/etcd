@@ -25,11 +25,11 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/etcdserver/api/v3rpc/rpctypes"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/pkg/testutil"
-	"etcd/pkg/transport"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/etcdserver/api/v3rpc/rpctypes"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/pkg/transport"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

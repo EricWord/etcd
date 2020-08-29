@@ -14,7 +14,7 @@
 
 package mvcc
 
-import "etcd/lease"
+import "etcd-with-comments/lease"
 
 type metricsTxnWrite struct {
 	TxnWrite

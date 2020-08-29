@@ -25,7 +25,7 @@ import (
 	"text/tabwriter"
 	"text/template"
 
-	"etcd/version"
+	"etcd-with-comments/version"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"

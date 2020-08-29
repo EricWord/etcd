@@ -22,7 +22,7 @@ import (
 	"os/exec"
 	"os/signal"
 
-	"etcd/client"
+	"etcd-with-comments/client"
 
 	"github.com/urfave/cli"
 )

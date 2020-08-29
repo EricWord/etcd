@@ -19,7 +19,7 @@ import (
 	"sync"
 	"time"
 
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 )
 
 type OrderViolationFunc func(op clientv3.Op, resp clientv3.OpResponse, prevRev int64) error

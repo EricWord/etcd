@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"etcd/lease"
-	"etcd/mvcc/backend"
-	"etcd/mvcc/mvccpb"
+	"etcd-with-comments/lease"
+	"etcd-with-comments/mvcc/backend"
+	"etcd-with-comments/mvcc/mvccpb"
 	"go.uber.org/zap"
 )
 

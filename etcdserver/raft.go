@@ -23,17 +23,17 @@ import (
 	"sync"
 	"time"
 
-	"etcd/etcdserver/api/membership"
-	"etcd/etcdserver/api/rafthttp"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/pkg/contention"
-	"etcd/pkg/logutil"
-	"etcd/pkg/pbutil"
-	"etcd/pkg/types"
-	"etcd/raft"
-	"etcd/raft/raftpb"
-	"etcd/wal"
-	"etcd/wal/walpb"
+	"etcd-with-comments/etcdserver/api/membership"
+	"etcd-with-comments/etcdserver/api/rafthttp"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/pkg/contention"
+	"etcd-with-comments/pkg/logutil"
+	"etcd-with-comments/pkg/pbutil"
+	"etcd-with-comments/pkg/types"
+	"etcd-with-comments/raft"
+	"etcd-with-comments/raft/raftpb"
+	"etcd-with-comments/wal"
+	"etcd-with-comments/wal/walpb"
 	"go.uber.org/zap"
 )
 
@@ -262,7 +262,7 @@ func (r *raftNode) start(rh *raftReadyHandler) {
 					// Force WAL to fsync its hard state before Release() releases
 					// old data from the WAL. Otherwise could get an error like:
 					// panic: tocommit(107) is out of range [lastIndex(84)]. Was the raft log corrupted, truncated, or lost?
-					// See https://github.com/etcd-io/etcd/issues/10219 for more details.
+					// See https://github.com/etcd-io/etcd-with-comments/issues/10219 for more details.
 					if err := r.storage.Sync(); err != nil {
 						if r.lg != nil {
 							r.lg.Fatal("failed to sync Raft snapshot", zap.Error(err))

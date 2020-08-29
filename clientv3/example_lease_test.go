@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"log"
 
-	"etcd/clientv3"
+	"etcd-with-comments/clientv3"
 )
 
 func ExampleLease_grant() {

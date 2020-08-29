@@ -19,8 +19,8 @@ import (
 	"sort"
 	"strings"
 
-	"etcd/raft/quorum"
-	pb "etcd/raft/raftpb"
+	"etcd-with-comments/raft/quorum"
+	pb "etcd-with-comments/raft/raftpb"
 )
 
 // Config reflects the configuration tracked in a ProgressTracker.
@@ -201,6 +201,7 @@ func (p *ProgressTracker) Visit(f func(id uint64, pr *Progress)) {
 	} else {
 		ids = make([]uint64, n)
 	}
+	//遍历集群中全部节点对应的Progress实例
 	for id := range p.Progress {
 		n--
 		ids[n] = id
@@ -213,6 +214,7 @@ func (p *ProgressTracker) Visit(f func(id uint64, pr *Progress)) {
 
 // QuorumActive returns true if the quorum is active from the view of the local
 // raft state machine. Otherwise, it returns false.
+//检查当前集群中与当前leader节点连通的节点个数是否超过了半数
 func (p *ProgressTracker) QuorumActive() bool {
 	votes := map[uint64]bool{}
 	p.Visit(func(id uint64, pr *Progress) {

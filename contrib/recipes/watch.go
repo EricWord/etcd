@@ -17,8 +17,8 @@ package recipe
 import (
 	"context"
 
-	"etcd/clientv3"
-	"etcd/mvcc/mvccpb"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/mvcc/mvccpb"
 )
 
 // WaitEvents waits on a key until it observes the given events and returns the final one.

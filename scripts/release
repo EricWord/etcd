@@ -175,10 +175,10 @@ main() {
   else
     read -p "Upload etcd ${RELEASE_VERSION} release artifacts to gs://etcd [y/N]? " -r confirm
     [[ "${confirm,,}" == "y" ]] || exit 1
-    gsutil -m cp ./release/SHA256SUMS "gs://etcd/${RELEASE_VERSION}/"
-    gsutil -m cp ./release/*.zip "gs://etcd/${RELEASE_VERSION}/"
-    gsutil -m cp ./release/*.tar.gz "gs://etcd/${RELEASE_VERSION}/"
-    gsutil -m acl ch -u allUsers:R -r "gs://etcd/${RELEASE_VERSION}/"
+    gsutil -m cp ./release/SHA256SUMS "gs://etcd-with-comments/${RELEASE_VERSION}/"
+    gsutil -m cp ./release/*.zip "gs://etcd-with-comments/${RELEASE_VERSION}/"
+    gsutil -m cp ./release/*.tar.gz "gs://etcd-with-comments/${RELEASE_VERSION}/"
+    gsutil -m acl ch -u allUsers:R -r "gs://etcd-with-comments/${RELEASE_VERSION}/"
   fi
 
   # Push images.
@@ -226,11 +226,11 @@ main() {
 
   # Check gsutil binary versions
   local BINARY_TGZ="etcd-${RELEASE_VERSION}-$(go env GOOS)-amd64.tar.gz"
-  gsutil cp "gs://etcd/${RELEASE_VERSION}/${BINARY_TGZ}" downloads
+  gsutil cp "gs://etcd-with-comments/${RELEASE_VERSION}/${BINARY_TGZ}" downloads
   tar -zx -C downloads -f "downloads/${BINARY_TGZ}"
   local binary_version=$("./downloads/etcd-${RELEASE_VERSION}-$(go env GOOS)-amd64/etcd" --version | grep "etcd Version" | awk -F: '{print $2}' | tr -d '[:space:]')
   if [ "${binary_version}" != "${VERSION}" ]; then
-    echo "Check failed: etcd --version output for ${BINARY_TGZ} from gs://etcd/${RELEASE_VERSION} is incorrect: ${binary_version}"
+    echo "Check failed: etcd --version output for ${BINARY_TGZ} from gs://etcd-with-comments/${RELEASE_VERSION} is incorrect: ${binary_version}"
     exit 1
   fi
 

@@ -4,7 +4,7 @@
 # in the past left the follower in probing status until the next log entry was
 # committed.
 #
-# See https://github.com/etcd-io/etcd/pull/10308 for additional background.
+# See https://github.com/etcd-io/etcd-with-comments/pull/10308 for additional background.
 
 # Turn off output during the setup of the test.
 log-level none

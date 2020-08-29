@@ -19,7 +19,7 @@ import (
 	"os"
 	"testing"
 
-	"etcd/auth"
+	"etcd-with-comments/auth"
 )
 
 // TestStartEtcdWrongToken ensures that StartEtcd with wrong configs returns with error.

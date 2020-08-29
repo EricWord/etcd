@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"math"
 
-	"etcd/mvcc/mvccpb"
-	"etcd/pkg/adt"
+	"etcd-with-comments/mvcc/mvccpb"
+	"etcd-with-comments/pkg/adt"
 )
 
 var (

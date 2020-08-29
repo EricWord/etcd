@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"etcd/etcdserver/api/v3rpc/rpctypes"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/mvcc"
-	"etcd/mvcc/backend"
-	"etcd/pkg/testutil"
-	"etcd/pkg/traceutil"
+	"etcd-with-comments/etcdserver/api/v3rpc/rpctypes"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/mvcc"
+	"etcd-with-comments/mvcc/backend"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/pkg/traceutil"
 
 	"go.uber.org/zap"
 )

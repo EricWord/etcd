@@ -21,8 +21,8 @@ import (
 	"testing"
 
 	"github.com/cockroachdb/datadriven"
-	"etcd/raft"
-	pb "etcd/raft/raftpb"
+	"etcd-with-comments/raft"
+	pb "etcd-with-comments/raft/raftpb"
 )
 
 func (env *InteractionEnv) handleAddNodes(t *testing.T, d datadriven.TestData) error {

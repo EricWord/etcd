@@ -19,11 +19,11 @@ import (
 	"os"
 	"time"
 
-	"etcd/etcdserver/api/snap"
-	"etcd/lease"
-	"etcd/mvcc"
-	"etcd/mvcc/backend"
-	"etcd/raft/raftpb"
+	"etcd-with-comments/etcdserver/api/snap"
+	"etcd-with-comments/lease"
+	"etcd-with-comments/mvcc"
+	"etcd-with-comments/mvcc/backend"
+	"etcd-with-comments/raft/raftpb"
 
 	"go.uber.org/zap"
 )

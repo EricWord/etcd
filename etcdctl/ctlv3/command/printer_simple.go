@@ -19,10 +19,10 @@ import (
 	"os"
 	"strings"
 
-	v3 "etcd/clientv3"
-	"etcd/clientv3/snapshot"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/pkg/types"
+	v3 "etcd-with-comments/clientv3"
+	"etcd-with-comments/clientv3/snapshot"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/pkg/types"
 )
 
 type simplePrinter struct {

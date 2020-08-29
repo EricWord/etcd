@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"etcd/pkg/fileutil"
-	"etcd/pkg/testutil"
-	"etcd/version"
+	"etcd-with-comments/pkg/fileutil"
+	"etcd-with-comments/pkg/testutil"
+	"etcd-with-comments/version"
 )
 
 // TestReleaseUpgrade ensures that changes to master branch does not affect

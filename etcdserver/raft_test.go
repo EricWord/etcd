@@ -21,12 +21,12 @@ import (
 	"testing"
 	"time"
 
-	"etcd/etcdserver/api/membership"
-	"etcd/pkg/mock/mockstorage"
-	"etcd/pkg/pbutil"
-	"etcd/pkg/types"
-	"etcd/raft"
-	"etcd/raft/raftpb"
+	"etcd-with-comments/etcdserver/api/membership"
+	"etcd-with-comments/pkg/mock/mockstorage"
+	"etcd-with-comments/pkg/pbutil"
+	"etcd-with-comments/pkg/types"
+	"etcd-with-comments/raft"
+	"etcd-with-comments/raft/raftpb"
 	"go.uber.org/zap"
 )
 

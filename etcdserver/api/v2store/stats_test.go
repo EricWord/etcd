@@ -18,7 +18,7 @@ import (
 	"testing"
 	"time"
 
-	"etcd/pkg/testutil"
+	"etcd-with-comments/pkg/testutil"
 )
 
 // Ensure that a successful Get is recorded in the stats.

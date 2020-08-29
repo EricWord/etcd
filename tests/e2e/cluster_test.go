@@ -21,7 +21,7 @@ import (
 	"os"
 	"strings"
 
-	"etcd/etcdserver"
+	"etcd-with-comments/etcdserver"
 )
 
 const etcdProcessBasePort = 20000

@@ -19,8 +19,8 @@ package v2store_test
 import (
 	"testing"
 
-	"etcd/etcdserver/api/v2store"
-	"etcd/pkg/testutil"
+	"etcd-with-comments/etcdserver/api/v2store"
+	"etcd-with-comments/pkg/testutil"
 )
 
 type v2TestStore struct {

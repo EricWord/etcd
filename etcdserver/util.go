@@ -21,10 +21,10 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"etcd/etcdserver/api/membership"
-	"etcd/etcdserver/api/rafthttp"
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/pkg/types"
+	"etcd-with-comments/etcdserver/api/membership"
+	"etcd-with-comments/etcdserver/api/rafthttp"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/pkg/types"
 
 	"go.uber.org/zap"
 )
@@ -188,7 +188,7 @@ func isNil(msg proto.Message) bool {
 
 // panicAlternativeStringer wraps a fmt.Stringer, and if calling String() panics, calls the alternative instead.
 // This is needed to ensure logging slow v2 requests does not panic, which occurs when running integration tests
-// with the embedded server with github.com/golang/protobuf v1.4.0+. See https://github.com/etcd-io/etcd/issues/12197.
+// with the embedded server with github.com/golang/protobuf v1.4.0+. See https://github.com/etcd-io/etcd-with-comments/issues/12197.
 type panicAlternativeStringer struct {
 	stringer    fmt.Stringer
 	alternative func() string

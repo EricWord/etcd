@@ -9,7 +9,7 @@ It translates gRPC into RESTful JSON APIs.
 package gw
 
 import (
-	"etcd/etcdserver/etcdserverpb"
+	"etcd-with-comments/etcdserver/etcdserverpb"
 	"io"
 	"net/http"
 

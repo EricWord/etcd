@@ -18,8 +18,8 @@ import (
 	goruntime "runtime"
 	"time"
 
-	"etcd/pkg/runtime"
-	"etcd/version"
+	"etcd-with-comments/pkg/runtime"
+	"etcd-with-comments/version"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"go.uber.org/zap"
@@ -203,7 +203,7 @@ func monitorFileDescriptor(lg *zap.Logger, done <-chan struct{}) {
 	// And recorded some logs when in used >= limit/5*4. Just recorded message.
 	// If fds was more than 10K,It's low performance due to FDUsage() works.
 	// So need to increase it.
-	// See https://github.com/etcd-io/etcd/issues/11969 for more detail.
+	// See https://github.com/etcd-io/etcd-with-comments/issues/11969 for more detail.
 	ticker := time.NewTicker(10 * time.Minute)
 	defer ticker.Stop()
 	for {

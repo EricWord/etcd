@@ -24,8 +24,8 @@ import (
 	"strings"
 	"time"
 
-	v3 "etcd/clientv3"
-	"etcd/pkg/report"
+	v3 "etcd-with-comments/clientv3"
+	"etcd-with-comments/pkg/report"
 
 	"github.com/dustin/go-humanize"
 	"github.com/spf13/cobra"

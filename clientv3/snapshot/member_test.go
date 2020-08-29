@@ -22,10 +22,10 @@ import (
 	"testing"
 	"time"
 
-	"etcd/clientv3"
-	"etcd/embed"
-	"etcd/etcdserver"
-	"etcd/pkg/testutil"
+	"etcd-with-comments/clientv3"
+	"etcd-with-comments/embed"
+	"etcd-with-comments/etcdserver"
+	"etcd-with-comments/pkg/testutil"
 )
 
 // TestSnapshotV3RestoreMultiMemberAdd ensures that multiple members

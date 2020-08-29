@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"testing"
 
-	"etcd/version"
+	"etcd-with-comments/version"
 )
 
 func TestV3CurlCipherSuitesValid(t *testing.T)    { testV3CurlCipherSuites(t, true) }

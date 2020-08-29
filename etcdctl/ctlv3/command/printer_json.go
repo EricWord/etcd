@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"os"
 
-	"etcd/clientv3/snapshot"
+	"etcd-with-comments/clientv3/snapshot"
 )
 
 type jsonPrinter struct{ printer }

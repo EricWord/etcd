@@ -19,8 +19,8 @@ import (
 	"sync"
 	"time"
 
-	pb "etcd/etcdserver/etcdserverpb"
-	"etcd/mvcc"
+	pb "etcd-with-comments/etcdserver/etcdserverpb"
+	"etcd-with-comments/mvcc"
 
 	"github.com/jonboulle/clockwork"
 	"go.uber.org/zap"

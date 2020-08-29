@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"etcd/integration"
-	"etcd/pkg/testutil"
+	"etcd-with-comments/integration"
+	"etcd-with-comments/pkg/testutil"
 )
 
 var endpoints []string

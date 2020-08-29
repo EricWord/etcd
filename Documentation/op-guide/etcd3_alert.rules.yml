@@ -1,4 +1,4 @@
-# these rules synced manually from https://github.com/etcd-io/etcd/blob/master/Documentation/etcd-mixin/mixin.libsonnet
+# these rules synced manually from https://github.com/etcd-io/etcd-with-comments/blob/master/Documentation/etcd-mixin/mixin.libsonnet
 groups:
 - name: etcd
   rules:

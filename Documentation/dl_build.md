@@ -29,7 +29,7 @@ To build a vendored `etcd` from the `master` branch via `go get`:
 $ echo $GOPATH
 /Users/example/go
 $ go get -v etcd
-$ go get -v etcd/etcdctl
+$ go get -v etcd-with-comments/etcdctl
 ```
 
 ## Test the installation
@@ -62,7 +62,7 @@ OK
 
 If OK is printed, then etcd is working!
 
-[github-release]: https://github.com/etcd-io/etcd/releases/
+[github-release]: https://github.com/etcd-io/etcd-with-comments/releases/
 [go]: https://golang.org/doc/install
 [build-script]: ../build
 [cmd-directory]: ../cmd

@@ -19,7 +19,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"etcd/pkg/transport"
+	"etcd-with-comments/pkg/transport"
 )
 
 // copyTLSFiles clones certs files to dst directory.

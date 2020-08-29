@@ -21,7 +21,7 @@ import (
 	"strings"
 	"sync"
 
-	"etcd/functional/rpcpb"
+	"etcd-with-comments/functional/rpcpb"
 )
 
 type failpointStats struct {

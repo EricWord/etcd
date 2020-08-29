@@ -16,7 +16,7 @@ Before [starting an upgrade](#upgrade-procedure), read through the rest of this 
 
 #### Upgrade Requirements
 
-To upgrade an existing etcd deployment to 2.3, the running cluster must be 2.2 or greater. If it's before 2.2, please upgrade to [2.2](https://github.com/coreos/etcd/releases/tag/v2.2.0) before upgrading to 2.3.
+To upgrade an existing etcd deployment to 2.3, the running cluster must be 2.2 or greater. If it's before 2.2, please upgrade to [2.2](https://github.com/coreos/etcd-with-comments/releases/tag/v2.2.0) before upgrading to 2.3.
 
 Also, to ensure a smooth rolling upgrade, the running cluster must be healthy. You can check the health of the cluster by using the `etcdctl cluster-health` command.
 
@@ -73,7 +73,7 @@ When each etcd process is stopped, expected errors will be logged by other clust
 2016-03-11 09:50:51.023821 W | etcdserver: cannot get the version of member 8211f1d0f64f3269 (Get http://127.0.0.1:12380/version: dial tcp 127.0.0.1:12380: getsockopt: connection refused)
 ```
 
-It’s a good idea at this point to  [backup the etcd data directory](https://github.com/coreos/etcd/blob/7f7e2cc79d9c5c342a6eb1e48c386b0223cf934e/Documentation/admin_guide.md#backing-up-the-datastore) to provide a downgrade path should any problems occur:
+It’s a good idea at this point to  [backup the etcd data directory](https://github.com/coreos/etcd-with-comments/blob/7f7e2cc79d9c5c342a6eb1e48c386b0223cf934e/Documentation/admin_guide.md#backing-up-the-datastore) to provide a downgrade path should any problems occur:
 
 ```
 $ etcdctl backup \
@@ -123,5 +123,5 @@ $ curl http://127.0.0.1:4001/version
 ```
 
 
-[etcd-contact]: https://coreos.com/etcd/?
+[etcd-contact]: https://coreos.com/etcd-with-comments/?
 

@@ -21,9 +21,9 @@ import (
 	"runtime/pprof"
 	"time"
 
-	"etcd/lease"
-	"etcd/pkg/report"
-	"etcd/pkg/traceutil"
+	"etcd-with-comments/lease"
+	"etcd-with-comments/pkg/report"
+	"etcd-with-comments/pkg/traceutil"
 
 	"github.com/spf13/cobra"
 )
