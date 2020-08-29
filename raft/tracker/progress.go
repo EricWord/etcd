@@ -157,11 +157,13 @@ func (pr *Progress) BecomeSnapshot(snapshoti uint64) {
 func (pr *Progress) MaybeUpdate(n uint64) bool {
 	var updated bool
 	if pr.Match < n {
+		//n之前的成功发送所有的entry记录已经写入对应节点的raftLog中
 		pr.Match = n
 		updated = true
 		pr.ProbeAcked()
 	}
 	if pr.Next < n+1 {
+		//移动next字段，下次要复制的entry记录从next开始
 		pr.Next = n + 1
 	}
 	return updated
