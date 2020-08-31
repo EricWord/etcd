@@ -1348,7 +1348,7 @@ func stepLeader(r *raft, m pb.Message) error {
 					r.send(pb.Message{To: m.From, Type: pb.MsgReadIndexResp, Index: ri, Entries: m.Entries})
 				}
 			}
-		} else {                                  // only one voting member (the leader) in the cluster
+		} else { // only one voting member (the leader) in the cluster
 			//单节点情况
 			if m.From == None || m.From == r.id { // from leader itself
 				r.readStates = append(r.readStates, ReadState{Index: r.raftLog.committed, RequestCtx: m.Entries[0].Data})
@@ -1445,6 +1445,8 @@ func stepLeader(r *raft, m pb.Message) error {
 				for r.maybeSendAppend(m.From, false) {
 				}
 				// Transfer leadership is in progress.
+				//收到目标follower节点的MsgAppResp消息并且两者的raftLog完全匹配
+				//则发送MsgTimeoutNow消息
 				if m.From == r.leadTransferee && pr.Match == r.raftLog.lastIndex() {
 					r.logger.Infof("%x sent MsgTimeoutNow to %x after received MsgAppResp", r.id, m.From)
 					r.sendTimeoutNow(m.From)
@@ -1538,17 +1540,22 @@ func stepLeader(r *raft, m pb.Message) error {
 			r.logger.Debugf("%x is learner. Ignored transferring leadership", r.id)
 			return nil
 		}
+		//MsgTransferLeader消息中，from字段记录了此次leader节点迁移操作的目标follower节点id
 		leadTransferee := m.From
+		//检查当前是否有一次未处理完的leader节点转移操作
 		lastLeadTransferee := r.leadTransferee
 		if lastLeadTransferee != None {
 			if lastLeadTransferee == leadTransferee {
+				//目标节点相同，忽略此次leader迁移操作
 				r.logger.Infof("%x [term %d] transfer leadership to %x is in progress, ignores request to same node %x",
 					r.id, r.Term, leadTransferee, leadTransferee)
 				return nil
 			}
+			//若目标节点不同，则清空上次记录的id
 			r.abortLeaderTransfer()
 			r.logger.Infof("%x [term %d] abort previous transferring leadership to %x", r.id, r.Term, lastLeadTransferee)
 		}
+		//目标节点已经是leader节点，放弃此次迁移操作
 		if leadTransferee == r.id {
 			r.logger.Debugf("%x is already leader. Ignored transferring leadership to self", r.id)
 			return nil
@@ -1556,12 +1563,17 @@ func stepLeader(r *raft, m pb.Message) error {
 		// Transfer leadership to third party.
 		r.logger.Infof("%x [term %d] starts to transfer leadership to %x", r.id, r.Term, leadTransferee)
 		// Transfer leadership should be finished in one electionTimeout, so reset r.electionElapsed.
+		//leader迁移操作应该在electionTimeout时间内完成，这里会重置选举计时器
 		r.electionElapsed = 0
+		//记录此次leader节点迁移的目标节点id
 		r.leadTransferee = leadTransferee
+		//检查目标follower节点是否与当前leader节点的raftLog是否完全一致
 		if pr.Match == r.raftLog.lastIndex() {
+			//向目标follower节点发送MsgTimeoutNow消息，这会导致follower节点的选举计时器立即过期，并发起新一轮的选举
 			r.sendTimeoutNow(leadTransferee)
 			r.logger.Infof("%x sends MsgTimeoutNow to %x immediately as %x already has up-to-date log", r.id, leadTransferee, leadTransferee)
 		} else {
+			//如果raftLog中的Entry记录没有完全匹配，则leader节点通过发送MsgApp消息向目标节点进行复制
 			r.sendAppend(leadTransferee)
 		}
 	}
@@ -1662,6 +1674,7 @@ func stepFollower(r *raft, m pb.Message) error {
 		//通过MsgSnap消息中的快照数据，重建当前节点的raftLog
 		r.handleSnapshot(m)
 	case pb.MsgTransferLeader:
+		//follower节点直接将MsgTransferLeader消息转给leader节点
 		if r.lead == None {
 			r.logger.Infof("%x no leader at term %d; dropping leader transfer msg", r.id, r.Term)
 			return nil
@@ -1670,10 +1683,12 @@ func stepFollower(r *raft, m pb.Message) error {
 		r.send(m)
 	case pb.MsgTimeoutNow:
 		if r.promotable() {
+			//检查当前节点是否已被移出当前集群
 			r.logger.Infof("%x [term %d] received MsgTimeoutNow from %x and starts an election to get leadership.", r.id, r.Term, m.From)
 			// Leadership transfers never use pre-vote even if r.preVote is true; we
 			// know we are not recovering from a partition so there is no need for the
 			// extra round trip.
+			//即使当前当前集群开启了preVote模式，目标follower节点也会直接发起新一轮选举
 			r.campaign(campaignTransfer)
 		} else {
 			r.logger.Infof("%x received MsgTimeoutNow from %x but is not promotable", r.id, m.From)
@@ -1735,11 +1750,12 @@ func (r *raft) handleHeartbeat(m pb.Message) {
 	//发送MsgHeartbeatResp消息，响应心跳
 	r.send(pb.Message{To: m.From, Type: pb.MsgHeartbeatResp, Context: m.Context})
 }
+
 //读取MsgSnap消息中的快照数据，并重建当前节点的raftLog
 func (r *raft) handleSnapshot(m pb.Message) {
 	//获取快照数据的元数据
 	sindex, sterm := m.Snapshot.Metadata.Index, m.Snapshot.Metadata.Term
-	if r.restore(m.Snapshot) {//返回值表示是否通过快照数据进行了重建
+	if r.restore(m.Snapshot) { //返回值表示是否通过快照数据进行了重建
 		r.logger.Infof("%x [commit: %d] restored snapshot [index: %d, term: %d]",
 			r.id, r.raftLog.committed, sindex, sterm)
 		//向leader节点返回MsgAppResp消息
