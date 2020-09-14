@@ -62,7 +62,9 @@ func (s *kvstore) Propose(k string, v string) {
 }
 
 func (s *kvstore) readCommits(commitC <-chan *string, errorC <-chan error) {
+	//循环读取commitC通道
 	for data := range commitC {
+		//读取到nil时，则表示需要读取快照数据
 		if data == nil {
 			// done replaying log; new data incoming
 			// OR signaled to load snapshot
@@ -80,6 +82,7 @@ func (s *kvstore) readCommits(commitC <-chan *string, errorC <-chan error) {
 			continue
 		}
 
+		//将读取到的数据进行反序列化得到kv实例
 		var dataKv kv
 		dec := gob.NewDecoder(bytes.NewBufferString(*data))
 		if err := dec.Decode(&dataKv); err != nil {
@@ -100,13 +103,17 @@ func (s *kvstore) getSnapshot() ([]byte, error) {
 	return json.Marshal(s.kvStore)
 }
 
+//将快照数据反序列化得到一个map实例，然后直接 替换当前的kvstore实例
+
 func (s *kvstore) recoverFromSnapshot(snapshot []byte) error {
 	var store map[string]string
+	//快照数据反序列化
 	if err := json.Unmarshal(snapshot, &store); err != nil {
 		return err
 	}
 	s.mu.Lock()
 	defer s.mu.Unlock()
+	//替换kvstore字段
 	s.kvStore = store
 	return nil
 }
