@@ -31,11 +31,13 @@ type Status struct {
 
 // BasicStatus contains basic information about the Raft peer. It does not allocate.
 type BasicStatus struct {
+	//当前节点的id
 	ID uint64
 
 	pb.HardState
 	SoftState
 
+	//已经应用的Entry记录的索引值
 	Applied uint64
 
 	LeadTransferee uint64
@@ -69,6 +71,8 @@ func getBasicStatus(r *raft) BasicStatus {
 func getStatus(r *raft) Status {
 	var s Status
 	s.BasicStatus = getBasicStatus(r)
+	//如果当前节点是leader状态
+	//则将集群中每个节点对应的Progress实例封装到Status实例中
 	if s.RaftState == StateLeader {
 		s.Progress = getProgressCopy(r)
 	}
