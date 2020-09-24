@@ -37,9 +37,13 @@ import (
 var plog = logutil.NewMergeLogger(capnslog.NewPackageLogger("etcd", "rafthttp"))
 
 type Raft interface {
+	//将指定的消息实例传递到底层的etcd-raft模块进行处理
 	Process(ctx context.Context, m raftpb.Message) error
+	//检查当前节点是否从当前集群中移出
 	IsIDRemoved(id uint64) bool
+	//通知底层etcd-raft模块，当前节点与指定的节点无法连通
 	ReportUnreachable(id uint64)
+	//通知底层etcd-raft模块，快照数据是否发送成功
 	ReportSnapshot(id uint64, status raft.SnapshotStatus)
 }
 
@@ -108,10 +112,16 @@ type Transport struct {
 
 	TLSInfo transport.TLSInfo // TLS information used when creating connection
 
-	ID          types.ID   // local member ID
-	URLs        types.URLs // local peer URLs
-	ClusterID   types.ID   // raft cluster ID for request validation
-	Raft        Raft       // raft state machine, to which the Transport forwards received messages and reports status
+	//当前节点自己的id
+	ID types.ID // local member ID
+	//当前节点与集群中其他节点交互时使用的url地址
+	URLs types.URLs // local peer URLs
+	//当前节点所在的集群的id
+	ClusterID types.ID // raft cluster ID for request validation
+	//一个接口，其底层的实现封装了etcd-raft模块
+	//当rafthttp.Transport收到消息之后，会将其交给Raft实例进行处理
+	Raft Raft // raft state machine, to which the Transport forwards received messages and reports status
+	//负责管理快照文件
 	Snapshotter *snap.Snapshotter
 	ServerStats *stats.ServerStats // used to record general transportation statistics
 	// used to record transportation statistics with followers when
@@ -126,20 +136,27 @@ type Transport struct {
 	streamRt   http.RoundTripper // roundTripper used by streams
 	pipelineRt http.RoundTripper // roundTripper used by pipelines
 
-	mu      sync.RWMutex         // protect the remote and peer map
+	mu sync.RWMutex // protect the remote and peer map
+	//remote中只封装了pipeline实例
+	//remote主要负责发送快照数据，帮助新加入的节点快速追赶上其他节点的数据
 	remotes map[types.ID]*remote // remotes map that helps newly joined member to catch up
-	peers   map[types.ID]Peer    // peers map
+	//peers字段维护了节点id到对应peer实例之间的映射关系
+	//Peer接口是当前节点对集群中其他节点的抽象表示
+	//对于当前节点来说，集群中其他节点在本地都会有一个Peer实例与之对应
+	peers map[types.ID]Peer // peers map
 
 	pipelineProber probing.Prober
 	streamProber   probing.Prober
 }
 
+//初始化操作
 func (t *Transport) Start() error {
 	var err error
 	t.streamRt, err = newStreamRoundTripper(t.TLSInfo, t.DialTimeout)
 	if err != nil {
 		return err
 	}
+	//读写请求的超时时间设置成了永不过期
 	t.pipelineRt, err = NewRoundTripper(t.TLSInfo, t.DialTimeout)
 	if err != nil {
 		return err
@@ -158,11 +175,13 @@ func (t *Transport) Start() error {
 	return nil
 }
 
+//主要负责创建Stream消息和Pipeline消息通道用到的Handler实例，并注册到相应的请求路径上
 func (t *Transport) Handler() http.Handler {
 	pipelineHandler := newPipelineHandler(t, t.Raft, t.ClusterID)
 	streamHandler := newStreamHandler(t, t, t.Raft, t.ID, t.ClusterID)
 	snapHandler := newSnapshotHandler(t, t.Raft, t.Snapshotter, t.ClusterID)
 	mux := http.NewServeMux()
+	//设置URL和handler实例的映射关系，也就是指定URL地址的请求由对应的handler进行处理
 	mux.Handle(RaftPrefix, pipelineHandler)
 	mux.Handle(RaftStreamPrefix+"/", streamHandler)
 	mux.Handle(RaftSnapshotPrefix, snapHandler)
@@ -177,7 +196,9 @@ func (t *Transport) Get(id types.ID) Peer {
 }
 
 func (t *Transport) Send(msgs []raftpb.Message) {
+	//遍历msgs切片中的全部消息
 	for _, m := range msgs {
+		//根据to字段获取目标节点对应的Peer实例
 		if m.To == 0 {
 			// ignore intentionally dropped message
 			continue
@@ -189,15 +210,21 @@ func (t *Transport) Send(msgs []raftpb.Message) {
 		g, rok := t.remotes[to]
 		t.mu.RUnlock()
 
+		//如果存在对应的Peer实例，则使用Peer发送消息
 		if pok {
+			//统计信息
 			if m.Type == raftpb.MsgApp {
 				t.ServerStats.SendAppendReq(m.Size())
 			}
+			//记录监控信息
+			//通过peer.send()方法
 			p.send(m)
 			continue
 		}
 
+		//如果指定节点id不存在对应的peer实例，则尝试使用查找对应remote实例
 		if rok {
+			//通过remote.send()方法完成消息的发送
 			g.send(m)
 			continue
 		}
@@ -300,6 +327,7 @@ func (t *Transport) AddRemote(id types.ID, us []string) {
 	}
 }
 
+//创建并启动对应节点的peer实例
 func (t *Transport) AddPeer(id types.ID, us []string) {
 	t.mu.Lock()
 	defer t.mu.Unlock()
@@ -310,6 +338,7 @@ func (t *Transport) AddPeer(id types.ID, us []string) {
 	if _, ok := t.peers[id]; ok {
 		return
 	}
+	//解析us切片中指定URL连接
 	urls, err := types.NewURLs(us)
 	if err != nil {
 		if t.Logger != nil {
@@ -319,7 +348,9 @@ func (t *Transport) AddPeer(id types.ID, us []string) {
 		}
 	}
 	fs := t.LeaderStats.Follower(id.String())
+	//创建指定节点对应的Peer实例
 	t.peers[id] = startPeer(t, urls, id, fs)
+	//每隔一段时间，prober会向该节点发送探测消息，检测对端的健康状况
 	addPeerToProber(t.Logger, t.pipelineProber, id.String(), us, RoundTripperNameSnapshot, rttSec)
 	addPeerToProber(t.Logger, t.streamProber, id.String(), us, RoundTripperNameRaftMessage, rttSec)
 

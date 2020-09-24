@@ -60,6 +60,7 @@ type Peer interface {
 	// and has no promise that the message will be received by the remote.
 	// When it fails to send message out, it will report the status to underlying
 	// raft.
+	//发送单个消息，该方法是非阻塞的,如果出现发送失败，则会将失败信息报告给底层的Raft接口
 	send(m raftpb.Message)
 
 	// sendSnap sends the merged snapshot message to the remote peer. Its behavior
@@ -67,18 +68,21 @@ type Peer interface {
 	sendSnap(m snap.Message)
 
 	// update updates the urls of remote peer.
+	//更新对应节点对应的url地址
 	update(urls types.URLs)
 
 	// attachOutgoingConn attaches the outgoing connection to the peer for
 	// stream usage. After the call, the ownership of the outgoing
 	// connection hands over to the peer. The peer will close the connection
 	// when it is no longer used.
+	//将指定的连接与当前Peer绑定,Peer会将该连接作为Stream消息通道使用
 	attachOutgoingConn(conn *outgoingConn)
 	// activeSince returns the time that the connection with the
 	// peer becomes active.
 	activeSince() time.Time
 	// stop performs any necessary finalization and terminates the peer
 	// elegantly.
+	//关闭当前的Peer实例，会关闭底层的网络连接
 	stop()
 }
 
@@ -138,9 +142,12 @@ func startPeer(t *Transport, urls types.URLs, peerID types.ID, fs *stats.Followe
 	}()
 
 	status := newPeerStatus(t.Logger, t.ID, peerID)
+	//根据节点提供的url创建urlPicker
 	picker := newURLPicker(urls)
 	errorc := t.ErrorC
+	//底层的Raft状态机
 	r := t.Raft
+	//创建pipeline实例
 	pipeline := &pipeline{
 		peerID:        peerID,
 		tr:            t,
@@ -170,10 +177,14 @@ func startPeer(t *Transport, urls types.URLs, peerID types.ID, fs *stats.Followe
 
 	ctx, cancel := context.WithCancel(context.Background())
 	p.cancel = cancel
+	//启动单独的goroutine,它主要负责将recvc通道中读取消息，该通道中的消息就是从对端节点
+	//发送过来的消息，然后将读取到的消息交给底层的raft状态机进行处理
 	go func() {
 		for {
 			select {
+			//从recvc通道中获取连接上读取到的Message
 			case mm := <-p.recvc:
+				//将Message交给底层Raft状态机处理
 				if err := r.Process(ctx, mm); err != nil {
 					if t.Logger != nil {
 						t.Logger.Warn("failed to process Raft message", zap.Error(err))
@@ -190,10 +201,13 @@ func startPeer(t *Transport, urls types.URLs, peerID types.ID, fs *stats.Followe
 	// r.Process might block for processing proposal when there is no leader.
 	// Thus propc must be put into a separate routine with recvc to avoid blocking
 	// processing other raft messages.
+	//在底层Raft状态机处理MsgProp类型的Message时，可能会阻塞
+	//所以启动单独的goroutine来处理
 	go func() {
 		for {
 			select {
 			case mm := <-p.propc:
+				//将Message交给Raft状态机处理
 				if err := r.Process(ctx, mm); err != nil {
 					plog.Warningf("failed to process raft message (%v)", err)
 				}
@@ -203,6 +217,7 @@ func startPeer(t *Transport, urls types.URLs, peerID types.ID, fs *stats.Followe
 		}
 	}()
 
+	//创建并启动streamReader实例，它主要负责从Stream消息通道上读取消息
 	p.msgAppV2Reader = &streamReader{
 		lg:     t.Logger,
 		peerID: peerID,
@@ -237,14 +252,18 @@ func (p *peer) send(m raftpb.Message) {
 	paused := p.paused
 	p.mu.Unlock()
 
+	//检查paused字段，是否暂停对指定节点发送消息
 	if paused {
 		return
 	}
 
+	//根据消息的类型选择合适的消息通道
 	writec, name := p.pick(m)
 	select {
+	//将Message写入writec通道中等待发送
 	case writec <- m:
 	default:
+		//如果发送出现阻塞，则将信息报告给底层Raft状态机，这里也会根据消息类型选择合适的报告方法
 		p.r.ReportUnreachable(m.To)
 		if isMsgSnap(m) {
 			p.r.ReportSnapshot(m.To, raft.SnapshotFailure)
@@ -359,6 +378,9 @@ func (p *peer) pick(m raftpb.Message) (writec chan<- raftpb.Message, picked stri
 	var ok bool
 	// Considering MsgSnap may have a big size, e.g., 1G, and will block
 	// stream for a long time, only use one of the N pipelines to send MsgSnap.
+	//如果是MsgSnap类型的消息，则返回Pipeline消息通道对应的Channel
+	//否则返回Stream消息通道对应的Channel
+	//如果Stream消息通道不可用，则使用Pipeline消息通道发送所有类型的消息
 	if isMsgSnap(m) {
 		return p.pipeline.msgc, pipelineMsg
 	} else if writec, ok = p.msgAppV2Writer.writec(); ok && isMsgApp(m) {

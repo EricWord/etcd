@@ -418,6 +418,7 @@ func (rc *raftNode) publishSnapshot(snapshotToSave raftpb.Snapshot) {
 }
 
 var snapshotCatchUpEntriesN uint64 = 10000
+
 //触发快照生成操作
 func (rc *raftNode) maybeTriggerSnapshot() {
 	//检查处理的记录数是否足够。如果不足，直接返回
@@ -526,18 +527,21 @@ func (rc *raftNode) serveChannels() {
 	}
 }
 
-//负责监听当前节点的地址，完成与其他节点的通信6
+//负责监听当前节点的地址，完成与其他节点的通信
 func (rc *raftNode) serveRaft() {
+	//获取当前节点的url
 	url, err := url.Parse(rc.peers[rc.id-1])
 	if err != nil {
 		log.Fatalf("raftexample: Failed parsing URL (%v)", err)
 	}
 
+	//创建StoppableListener实例，与http.server配合实现对当前节点的URL地址进行监听
 	ln, err := newStoppableListener(url.Host, rc.httpstopc)
 	if err != nil {
 		log.Fatalf("raftexample: Failed to listen rafthttp (%v)", err)
 	}
 
+	//创建http.Server实例
 	err = (&http.Server{Handler: rc.transport.Handler()}).Serve(ln)
 	select {
 	case <-rc.httpstopc:

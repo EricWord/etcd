@@ -24,6 +24,7 @@ import (
 // connections and waits on stopc message
 type stoppableListener struct {
 	*net.TCPListener
+	//用来监听是否应该关闭当前的Server,也就是raftNode中的httpstopc通道
 	stopc <-chan struct{}
 }
 
@@ -38,19 +39,24 @@ func newStoppableListener(addr string, stopc <-chan struct{}) (*stoppableListene
 func (ln stoppableListener) Accept() (c net.Conn, err error) {
 	connc := make(chan *net.TCPConn, 1)
 	errc := make(chan error, 1)
+	//启动单独的goroutine来接收新连接
 	go func() {
 		tc, err := ln.AcceptTCP()
 		if err != nil {
 			errc <- err
 			return
 		}
+		//将接收到的新连接传递到connc通道中
 		connc <- tc
 	}()
 	select {
+	//从stopc通道中接收到通知时，会抛出异常
 	case <-ln.stopc:
 		return nil, errors.New("server stopped")
+	//	如果在接收新连接时出现异常，则抛出异常
 	case err := <-errc:
 		return nil, err
+	//	接收到新建连接，设置KeepAlive等连接属性并返回
 	case tc := <-connc:
 		tc.SetKeepAlive(true)
 		tc.SetKeepAlivePeriod(3 * time.Minute)
