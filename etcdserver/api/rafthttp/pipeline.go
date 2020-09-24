@@ -41,7 +41,7 @@ const (
 )
 
 var errStopped = errors.New("stopped")
-
+//传输快照数据
 type pipeline struct {
 	peerID types.ID
 
